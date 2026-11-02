@@ -14,7 +14,7 @@ const MAX_BYTES = 8 * 1024 * 1024;
  * Optimises an uploaded product photo and stores it.
  * - "photo": the main product shot (1000px WebP + blur placeholder).
  * - "cutout": an optional transparent PNG/WebP shown floating in the niches (800px, alpha kept).
- * Vercel Blob in production (BLOB_READ_WRITE_TOKEN); public/uploads during local development.
+ * Vercel Blob in production (BLOB_STORE_ID via OIDC, or BLOB_READ_WRITE_TOKEN); public/uploads during local development.
  */
 export async function storeProductImage(file: File, kind: "photo" | "cutout"): Promise<StoredImage> {
     if (!file.type.startsWith("image/")) throw new Error("الملف المرفوع ليس صورة.");
@@ -31,13 +31,13 @@ export async function storeProductImage(file: File, kind: "photo" | "cutout"): P
     const blur = `data:image/webp;base64,${blurBuffer.toString("base64")}`;
     const name = `${kind}-${randomUUID()}.webp`;
 
-    if (process.env.BLOB_READ_WRITE_TOKEN) {
+    if (process.env.BLOB_STORE_ID || process.env.BLOB_READ_WRITE_TOKEN) {
         const blob = await put(`products/${name}`, data, { access: "public", contentType: "image/webp" });
         return { url: blob.url, width: info.width, height: info.height, blur };
     }
 
     if (process.env.NODE_ENV === "production") {
-        throw new Error("تخزين الصور غير مُفعّل: أضيفي BLOB_READ_WRITE_TOKEN في إعدادات Vercel.");
+        throw new Error("تخزين الصور غير مُفعّل: اربطي Blob store بالمشروع من إعدادات Vercel.");
     }
 
     const directory = path.join(process.cwd(), "public", "uploads");
