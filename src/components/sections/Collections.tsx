@@ -41,8 +41,8 @@ export default function Collections() {
                 <SectionHeading
                     id="collections-title"
                     eyebrow="المجموعات"
-                    title="مجوهرات صغيرة لأحلام كبيرة"
-                    description="اختاري من مجموعاتنا المصممة بعناية؛ من أقراط المواليد بلون حجر الميلاد إلى سلاسل وأساور ترافقها وهي تكبر."
+                    title="لكِ، ولصغيرتك"
+                    description="من قطعك اليومية وأجمل مناسباتك، إلى أول ذهب في حياة صغيرتك — مجموعات مصممة بعناية لكل لحظة ولكل عمر."
                 />
 
                 <div className="mt-14 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:auto-rows-88 lg:grid-cols-12 lg:gap-5">

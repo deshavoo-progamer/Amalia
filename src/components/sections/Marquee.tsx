@@ -1,9 +1,9 @@
 import Emblem from "@/components/brand/Emblem";
 
 const items = [
-    "ذهب عيار 18 للأطفال",
+    "ذهب عيار 18 لكِ ولصغيرتك",
     "Elegance in every touch",
-    "آمنة على البشرة الحساسة",
+    "للنساء والأطفال",
     "شحن لجميع مناطق المملكة",
     "حرفية أوروبية",
     "Baby Amalia",

@@ -21,26 +21,27 @@ import {
 } from "lucide-react";
 
 import BabyWordmark from "@/components/brand/BabyWordmark";
-import { contactWhatsappUrl, siteConfig } from "@/lib/site";
+import { useCart } from "@/lib/cart";
+import { contactWhatsappUrl } from "@/lib/site";
 
 const mainLinks = [
     { label: "الرئيسية", href: "/" },
-    { label: "المتجر", href: "/shop" },
-    { label: "أقراط المواليد", href: "/shop/newborn" },
+    { label: "للنساء", href: "/shop/women" },
+    { label: "للأطفال", href: "/shop/kids" },
     { label: "قصتنا", href: "/about" },
     { label: "تواصلي معنا", href: "/contact" },
 ];
 
 const categoryLinks = [
     { label: "جميع المجوهرات", href: "/shop" },
+    { label: "للنساء", href: "/shop/women" },
+    { label: "للأطفال", href: "/shop/kids" },
     { label: "أقراط", href: "/shop/earrings" },
     { label: "قلائد", href: "/shop/necklaces" },
     { label: "أساور", href: "/shop/bracelets" },
     { label: "أقراط المواليد", href: "/shop/newborn" },
-    { label: "الهدايا", href: "/#gifts" },
 ];
 
-// Cart, account and checkout stay on the Salla storefront.
 const iconLinks = [
     {
         label: "البحث",
@@ -54,12 +55,12 @@ const iconLinks = [
     },
     {
         label: "حسابي",
-        href: `${siteConfig.storeUrl}/profile`,
+        href: "/account",
         icon: UserRound,
     },
     {
         label: "حقيبة التسوق",
-        href: `${siteConfig.storeUrl}/cart`,
+        href: "/cart",
         icon: ShoppingBag,
     },
 ];
@@ -67,6 +68,7 @@ const iconLinks = [
 export default function Navbar() {
     const router = useRouter();
     const pathname = usePathname();
+    const { count } = useCart();
     // Anchors ("/#gifts") never mark a page as current.
     const current = (href: string) => (!href.includes("#") && href === pathname ? "page" : undefined);
 
@@ -129,7 +131,7 @@ export default function Navbar() {
                         <p className="text-center text-[10px] font-medium tracking-[0.12em] sm:text-xs">
                             شحن لجميع مناطق المملكة خلال 3–5 أيام
                             <span className="mx-2 text-gold">✦</span>
-                            ذهب عيار 18 آمن على بشرة طفلتك
+                            ذهب عيار 18 لكِ ولصغيرتك
                         </p>
                     </div>
                 </div>
@@ -196,12 +198,20 @@ export default function Navbar() {
                                 <Link
                                     key={href}
                                     href={href}
-                                    aria-label={label}
-                                    className={`amalia-icon-button ${href === "/search" ? "hidden lg:inline-flex" : ""
+                                    aria-label={href === "/cart" && count > 0 ? `${label} (${count})` : label}
+                                    className={`amalia-icon-button relative ${href === "/search" ? "hidden lg:inline-flex" : ""
                                         } ${label === "واتساب" || label === "حسابي" ? "hidden sm:inline-flex" : ""
                                         }`}
                                 >
                                     <Icon size={20} strokeWidth={1.5} />
+                                    {href === "/cart" && count > 0 && (
+                                        <span
+                                            aria-hidden="true"
+                                            className="absolute -top-0.5 -right-0.5 grid min-w-5 place-items-center rounded-full bg-gold px-1 text-[10px] leading-5 font-medium text-forest-deep tabular-nums"
+                                        >
+                                            {count}
+                                        </span>
+                                    )}
                                 </Link>
                             ))}
                         </div>
@@ -472,7 +482,7 @@ export default function Navbar() {
                                     {[
                                         {
                                             label: "حسابي",
-                                            href: `${siteConfig.storeUrl}/profile`,
+                                            href: "/account",
                                             icon: UserRound,
                                         },
                                         {
@@ -482,7 +492,7 @@ export default function Navbar() {
                                         },
                                         {
                                             label: "حقيبة التسوق",
-                                            href: `${siteConfig.storeUrl}/cart`,
+                                            href: "/cart",
                                             icon: ShoppingBag,
                                         },
                                     ].map(({ label, href, icon: Icon }) => (

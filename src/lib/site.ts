@@ -4,20 +4,21 @@ export const siteConfig = {
     tagline: "Elegance in every touch",
     taglineAr: "أناقة في كل لمسة",
     description:
-        "بيبي أماليا — مجوهرات ذهب عيار 18 للأطفال والمواليد، آمنة على البشرة الحساسة وبحرفية أوروبية. أقراط، سلاسل وأساور وهدايا مواليد مع شحن لجميع مناطق المملكة.",
+        "بيبي أماليا — مجوهرات ذهب عيار 18 لكِ ولصغيرتك بحرفية أوروبية: أقراط وسلاسل وأساور للنساء والأطفال وهدايا المواليد، مع شحن لجميع مناطق المملكة.",
     // Set NEXT_PUBLIC_SITE_URL once the final domain is live; on Vercel it falls back to the project's production domain.
     url:
         process.env.NEXT_PUBLIC_SITE_URL ??
         (process.env.VERCEL_PROJECT_PRODUCTION_URL
             ? `https://${process.env.VERCEL_PROJECT_PRODUCTION_URL}`
             : "http://localhost:3000"),
-    // Salla storefront that still handles cart and checkout.
-    storeUrl: process.env.NEXT_PUBLIC_STORE_URL ?? "https://babyamalia.com",
     locale: "ar_SA",
     currency: "SAR",
     keywords: [
         "بيبي أماليا",
         "Baby Amalia",
+        "مجوهرات ذهب",
+        "مجوهرات نسائية",
+        "ذهب عيار 18",
         "مجوهرات أطفال",
         "ذهب أطفال",
         "حلق أطفال",
@@ -27,6 +28,7 @@ export const siteConfig = {
         "سلاسل ذهب بنات",
         "هدايا مواليد",
         "هدايا فاخرة للأطفال",
+        "هدايا للأم",
         "Baby Jewelry",
     ],
     contact: {

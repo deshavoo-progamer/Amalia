@@ -1,11 +1,12 @@
 import type { CSSProperties } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { ArrowLeft, ShoppingBag } from "lucide-react";
+import { ArrowLeft } from "lucide-react";
 
 import { getCategory, productAlt, type Product } from "@/data/taxonomy";
 import { cn, formatPrice } from "@/lib/cn";
 
+import AddToCartButton from "./AddToCartButton";
 import WishButton from "./WishButton";
 
 type NicheCardProps = {
@@ -106,13 +107,7 @@ export default function NicheCard({
                         </Link>
 
                         {product.available && (
-                            <a
-                                href={product.sallaUrl}
-                                aria-label={`أضيفي ${product.name} إلى السلة`}
-                                className="amalia-niche-action"
-                            >
-                                <ShoppingBag size={16} strokeWidth={1.5} />
-                            </a>
+                            <AddToCartButton productId={product.id} name={product.name} available variant="icon" />
                         )}
                     </div>
                 </div>

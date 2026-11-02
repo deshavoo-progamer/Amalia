@@ -43,7 +43,7 @@ export default function Newsletter() {
                         كوني أول من يكتشف الجديد
                     </h2>
                     <p className="mt-4 text-lg leading-8 text-ivory/70">
-                        التصاميم الجديدة، وأفكار هدايا المواليد، والعروض الخاصة تصلك أولًا.
+                        التصاميم الجديدة، وأفكار الهدايا لكِ ولصغيرتك، والعروض الخاصة تصلك أولًا.
                     </p>
 
                     <AnimatePresence mode="wait" initial={false}>

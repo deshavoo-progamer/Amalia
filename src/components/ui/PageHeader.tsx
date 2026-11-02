@@ -78,7 +78,6 @@ export default function PageHeader({ eyebrow, title, description, breadcrumbs, i
                                     src={image.src}
                                     alt={image.alt}
                                     fill
-                                    preload
                                     sizes="(min-width: 1280px) 288px, 256px"
                                     className="object-cover"
                                 />

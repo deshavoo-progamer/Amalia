@@ -146,7 +146,7 @@ export default function Hero() {
                 <h1 id="hero-title" className="mt-8 w-full sm:mt-10">
                     <span className="sr-only">
                         {siteConfig.name} — {siteConfig.nameEn}: مجوهرات ذهب
-                        أطفال فاخرة وآمنة
+                        للنساء والأطفال
                     </span>
 
                     <span className="amalia-wordmark-reveal mx-auto block w-[min(88vw,46rem)] text-ivory drop-shadow-[0_6px_24px_rgb(0_0_0/35%)]">
@@ -167,8 +167,8 @@ export default function Hero() {
                     style={enter(0.85)}
                     className="amalia-enter mt-6 max-w-xl text-base leading-8 text-pretty text-ivory/75 sm:text-lg"
                 >
-                    مجوهرات ذهب عيار 18 مصممة لبشرة الأطفال الحساسة — من أقراط
-                    المواليد إلى أولى السلاسل والأساور، بحرفية أوروبية تدوم.
+                    مجوهرات ذهب عيار 18 لكِ ولصغيرتك — من قطعك اليومية وأجمل
+                    مناسباتك إلى أول قرط في حياتها، بحرفية أوروبية تدوم.
                 </p>
 
                 <div

@@ -3,13 +3,11 @@ import { ArrowLeft } from "lucide-react";
 import NicheCard from "@/components/shop/NicheCard";
 import MagneticLink from "@/components/ui/MagneticLink";
 import Reveal from "@/components/ui/Reveal";
-import { featuredProducts } from "@/data/catalog";
-
-const SHOWCASE_SIZE = 5;
+import { getFeaturedProducts } from "@/data/catalog";
 
 /** The boutique wall: a single row of lit niches, like standing in front of the store display. */
-export default function FeaturedProducts() {
-    const pieces = featuredProducts.slice(0, SHOWCASE_SIZE);
+export default async function FeaturedProducts() {
+    const pieces = await getFeaturedProducts(5);
 
     return (
         <section
@@ -24,7 +22,7 @@ export default function FeaturedProducts() {
                         id="featured-title"
                         className="mt-4 text-3xl text-balance sm:text-4xl lg:text-5xl"
                     >
-                        مجموعة <span className="text-gold-gradient">الأميرات</span> الصغيرات
+                        مختارات <span className="text-gold-gradient">البوتيك</span>
                     </h2>
                     <p className="mt-5 text-base leading-8 text-pretty text-ivory/60 sm:text-lg">
                         قفي أمام كل قطعة، ودعي الضوء يكشف لكِ تفاصيلها.

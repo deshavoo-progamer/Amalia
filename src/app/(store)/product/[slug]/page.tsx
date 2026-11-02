@@ -3,6 +3,7 @@ import { notFound } from "next/navigation";
 import { ArrowLeft, CreditCard, Gem, MessageCircle, RefreshCcw, Sparkles, Truck } from "lucide-react";
 
 import { JsonLdScript } from "@/components/JsonLd";
+import AddToCartButton from "@/components/shop/AddToCartButton";
 import ProductGallery from "@/components/shop/ProductGallery";
 import ProductGrid from "@/components/shop/ProductGrid";
 import StickyBuyBar from "@/components/shop/StickyBuyBar";
@@ -14,17 +15,16 @@ import {
     getProduct,
     getRelatedProducts,
     productAlt,
-    products,
+    getProducts,
     type Product,
 } from "@/data/catalog";
 import { formatPrice } from "@/lib/cn";
 import { pageMetadata } from "@/lib/seo";
 import { absoluteUrl, siteConfig, whatsappLink } from "@/lib/site";
 
-export const dynamicParams = false;
-
-export function generateStaticParams() {
-    return products.map((product) => ({ slug: product.slug }));
+// Pieces added from /admin after a deploy render on first visit, then stay cached.
+export async function generateStaticParams() {
+    return (await getProducts()).map((product) => ({ slug: product.slug }));
 }
 
 const DEFAULT_CARE =
@@ -41,19 +41,17 @@ function describe(product: Product) {
         product.weight && `بوزن ${product.weight} جرام`,
         product.code && `رمز ${product.code}`,
     ].filter(Boolean);
-    const generated = `${product.name} من مجموعة ${category?.title ?? "المجوهرات"} في بيبي أماليا${details.length ? ` (${details.join("، ")})` : ""}، مصممة بعناية لتناسب بشرة الأطفال الحساسة بحرفية أوروبية.`;
+    const generated = `${product.name} من مجموعة ${category?.title ?? "المجوهرات"} في بيبي أماليا${details.length ? ` (${details.join("، ")})` : ""}، ${product.audience === "kids" ? "مصممة بعناية لتناسب بشرة الأطفال الحساسة" : "بتصميم راقٍ يكمّل إطلالتك"} بحرفية أوروبية.`;
 
     return product.story ? `${product.story} ${generated}` : generated;
 }
 
 // Names shared by several pieces ("اقراط ذهب") get the reference code so every title is unique.
-const repeatedNames = new Set(
-    products.map((product) => product.name).filter((name, index, names) => names.indexOf(name) !== index)
-);
-
-function seoTitle(product: Product) {
+async function seoTitle(product: Product) {
+    const names = (await getProducts()).map((item) => item.name);
+    const repeated = names.indexOf(product.name) !== names.lastIndexOf(product.name);
     const karat = product.karat ? (product.name.includes("ذهب") ? ` عيار ${product.karat}` : ` ذهب عيار ${product.karat}`) : "";
-    const code = repeatedNames.has(product.name) && product.code ? ` ${product.code}` : "";
+    const code = repeated && product.code ? ` ${product.code}` : "";
     return `${product.name}${karat}${code}`;
 }
 
@@ -74,7 +72,7 @@ export async function generateMetadata({ params }: PageProps<"/product/[slug]">)
     if (!product) return {};
 
     return pageMetadata({
-        title: seoTitle(product),
+        title: await seoTitle(product),
         description: seoDescription(product),
         path: `/product/${product.slug}`,
         image: { url: product.image, width: product.width, height: product.height, alt: productAlt(product) },
@@ -86,7 +84,7 @@ export default async function ProductPage({ params }: PageProps<"/product/[slug]
     if (!product) notFound();
 
     const category = getCategory(product.category)!;
-    const related = getRelatedProducts(product);
+    const related = await getRelatedProducts(product);
     const isEarring = product.category === "earrings";
     const orderMessage = `مرحبا، أرغب بطلب: ${product.name}${product.code ? ` (كود ${product.code})` : ""}\n${absoluteUrl(`/product/${product.slug}`)}`;
 
@@ -216,10 +214,14 @@ export default async function ProductPage({ params }: PageProps<"/product/[slug]
                         </dl>
 
                         <div className="mt-8 flex flex-wrap gap-3">
-                            <MagneticLink href={product.available ? product.sallaUrl : whatsappLink(orderMessage)} variant="forest">
-                                {product.available ? "اطلبي الآن" : "أعلميني عند التوفر"}
-                                <ArrowLeft size={18} strokeWidth={1.5} />
-                            </MagneticLink>
+                            {product.available ? (
+                                <AddToCartButton productId={product.id} name={product.name} available />
+                            ) : (
+                                <MagneticLink href={whatsappLink(orderMessage)} variant="forest">
+                                    أعلميني عند التوفر
+                                    <ArrowLeft size={18} strokeWidth={1.5} />
+                                </MagneticLink>
+                            )}
                             <a
                                 href={whatsappLink(orderMessage)}
                                 className="inline-flex min-h-13 items-center gap-2 rounded-full border border-forest/20 px-8 text-[0.9375rem] font-medium text-forest transition-colors hover:border-gold hover:text-gold-deep"
@@ -279,7 +281,7 @@ export default async function ProductPage({ params }: PageProps<"/product/[slug]
                 name={product.name}
                 price={product.price}
                 available={product.available}
-                orderUrl={product.available ? product.sallaUrl : whatsappLink(orderMessage)}
+                productId={product.id}
                 whatsappUrl={whatsappLink(orderMessage)}
             />
         </main>

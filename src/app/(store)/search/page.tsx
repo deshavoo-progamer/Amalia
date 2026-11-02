@@ -3,7 +3,7 @@ import type { Metadata } from "next";
 
 import SearchResults from "@/components/shop/SearchResults";
 import PageHeader from "@/components/ui/PageHeader";
-import { products } from "@/data/catalog";
+import { getProducts } from "@/data/catalog";
 
 export const metadata: Metadata = {
     title: "البحث",
@@ -11,7 +11,9 @@ export const metadata: Metadata = {
     robots: { index: false, follow: true },
 };
 
-export default function SearchPage() {
+export default async function SearchPage() {
+    const products = await getProducts();
+
     return (
         <main id="main-content">
             <PageHeader

@@ -13,7 +13,7 @@ const defaultImage = {
     url: "/opengraph-image.jpg",
     width: 1200,
     height: 630,
-    alt: `${siteConfig.name} ${siteConfig.nameEn} — مجوهرات ذهب أطفال فاخرة وآمنة`,
+    alt: `${siteConfig.name} ${siteConfig.nameEn} — مجوهرات ذهب للنساء والأطفال`,
 };
 
 /**

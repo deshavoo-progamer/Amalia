@@ -1,12 +1,12 @@
 import type { MetadataRoute } from "next";
 
-import { categories, products } from "@/data/catalog";
-import data from "@/data/products.json";
+import { categories, getCatalogUpdatedAt, getProducts, hasProducts } from "@/data/catalog";
 import { contentPages } from "@/data/pages";
 import { absoluteUrl, siteConfig } from "@/lib/site";
 
-export default function sitemap(): MetadataRoute.Sitemap {
-    const lastModified = new Date(data.importedAt);
+export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
+    const [products, lastModified] = await Promise.all([getProducts(), getCatalogUpdatedAt()]);
+    const listed = await Promise.all(categories.map(async (category) => ((await hasProducts(category.key)) ? category : null)));
 
     return [
         {
@@ -23,7 +23,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
             changeFrequency: "weekly",
             priority: 0.9,
         },
-        ...categories.map((category) => ({
+        ...listed.filter((category) => category !== null).map((category) => ({
             url: absoluteUrl(`/shop/${category.key}`),
             lastModified,
             changeFrequency: "weekly" as const,

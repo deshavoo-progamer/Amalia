@@ -1,11 +1,12 @@
 import Link from "next/link";
 
+import Emblem from "@/components/brand/Emblem";
 import { JsonLdScript } from "@/components/JsonLd";
 import PageHeader from "@/components/ui/PageHeader";
 import type { Crumb } from "@/components/ui/Breadcrumbs";
 import { categories, type CategoryKey, type Product } from "@/data/catalog";
 import { cn } from "@/lib/cn";
-import { absoluteUrl } from "@/lib/site";
+import { absoluteUrl, contactWhatsappUrl } from "@/lib/site";
 
 import ProductGrid from "./ProductGrid";
 
@@ -56,8 +57,14 @@ export default function ShopView({ active, image, eyebrow, title, description, b
                     <h2 id="products-title" className="sr-only">
                         قطع {title}
                     </h2>
-                    <p className="mb-12 text-center text-sm text-ivory/60">{products.length} قطعة في البوتيك</p>
-                    <ProductGrid products={products} />
+                    {products.length > 0 ? (
+                        <>
+                            <p className="mb-12 text-center text-sm text-ivory/60">{products.length} قطعة في البوتيك</p>
+                            <ProductGrid products={products} />
+                        </>
+                    ) : (
+                        <ComingSoon />
+                    )}
                 </div>
             </section>
 
@@ -81,5 +88,35 @@ export default function ShopView({ active, image, eyebrow, title, description, b
                 }}
             />
         </main>
+    );
+}
+
+/** An audience or category that has no pieces yet (e.g. the women's line before launch). */
+function ComingSoon() {
+    return (
+        <div className="mx-auto max-w-lg py-10 text-center">
+            <Emblem className="amalia-spin-slow mx-auto size-16" />
+            <p lang="en" className="mt-8 font-display text-2xl text-gold italic">
+                Coming soon
+            </p>
+            <p className="mt-3 text-2xl">قطع جديدة في الطريق إلى البوتيك</p>
+            <p className="mt-4 leading-8 text-ivory/70">
+                نجهّز هذه المجموعة بعناية. اتركي لنا رسالة لنخبرك أول ما تصل، أو تجوّلي في مجموعاتنا الحالية.
+            </p>
+            <div className="mt-8 flex flex-wrap justify-center gap-3">
+                <Link
+                    href="/shop"
+                    className="inline-flex min-h-11 items-center rounded-full bg-gold px-6 text-sm font-medium text-forest-deep transition-colors hover:bg-gold-light"
+                >
+                    تسوقي المجموعات الحالية
+                </Link>
+                <a
+                    href={contactWhatsappUrl}
+                    className="inline-flex min-h-11 items-center rounded-full border border-ivory/25 px-6 text-sm text-ivory transition-colors hover:border-gold hover:text-gold-light"
+                >
+                    أعلميني عند الإطلاق
+                </a>
+            </div>
+        </div>
     );
 }

@@ -3,8 +3,6 @@ import { Cormorant_Garamond, Readex_Pro } from "next/font/google";
 import localFont from "next/font/local";
 import { preload } from "react-dom";
 
-import Footer from "@/components/Footer";
-import Navbar from "@/components/Navbar";
 import { siteConfig } from "@/lib/site";
 
 import "./globals.css";
@@ -40,7 +38,7 @@ const cormorant = Cormorant_Garamond({
 export const metadata: Metadata = {
   metadataBase: new URL(siteConfig.url),
   title: {
-    default: `${siteConfig.name} | ${siteConfig.nameEn} — مجوهرات ذهب أطفال فاخرة وآمنة`,
+    default: `${siteConfig.name} | ${siteConfig.nameEn} — مجوهرات ذهب للنساء والأطفال`,
     template: `%s | ${siteConfig.name}`,
   },
   description: siteConfig.description,
@@ -103,9 +101,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
         >
           تخطي إلى المحتوى
         </a>
-        <Navbar />
         {children}
-        <Footer />
       </body>
     </html>
   );

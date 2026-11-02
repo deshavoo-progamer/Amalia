@@ -2,13 +2,21 @@
  * Catalog types and category metadata. Kept free of the product JSON so client components stay light.
  */
 
-export type CategoryKey = "earrings" | "necklaces" | "bracelets" | "newborn";
+/** Who a piece is designed for. Baby Amalia dresses women and children. */
+export type Audience = "women" | "kids";
+
+/** Piece types (shared by both audiences). */
+export type ProductType = "earrings" | "necklaces" | "bracelets";
+
+/** Every shop listing: the two audiences, the piece types, and the newborn edit. */
+export type CategoryKey = Audience | ProductType | "newborn";
 
 export type Product = {
     id: string;
     slug: string;
     name: string;
-    category: Exclude<CategoryKey, "newborn">;
+    category: ProductType;
+    audience: Audience;
     collections: string[];
     price: number;
     regularPrice: number;
@@ -24,14 +32,12 @@ export type Product = {
     weight?: number;
     story?: string;
     care?: string;
-    sallaUrl: string;
 };
 
 export type Category = {
     key: CategoryKey;
     title: string;
     titleEn: string;
-    singular: string;
     description: string;
     seoTitle: string;
     image?: string;
@@ -40,43 +46,59 @@ export type Category = {
 
 export const categories: Category[] = [
     {
+        key: "women",
+        title: "للنساء",
+        titleEn: "For Her",
+        description:
+            "قطع ذهب عيار 18 بتصاميم راقية تكمّل إطلالتك اليومية وأجمل مناسباتك، بحرفية أوروبية تدوم معكِ.",
+        seoTitle: "مجوهرات ذهب نسائية عيار 18",
+        image: "/images/hero-satin.webp",
+        alt: "ساتان أخضر عميق بلمعة ناعمة — هوية بيبي أماليا",
+    },
+    {
+        key: "kids",
+        title: "للأطفال",
+        titleEn: "For Little Ones",
+        description:
+            "أول ذهب في حياة صغيرتك: أقراط وسلاسل وأساور عيار 18 آمنة على البشرة الحساسة، بتصاميم تكبر معها.",
+        seoTitle: "مجوهرات ذهب للأطفال والبنات",
+        image: "/images/kids-necklace.webp",
+        alt: "طفلة بفستان وردي ترتدي سلسال ذهب من بيبي أماليا",
+    },
+    {
         key: "earrings",
         title: "أقراط",
         titleEn: "Earrings",
-        singular: "قرط",
         description:
-            "أقراط ذهب ناعمة ومريحة للأذن بتصاميم القلب والفراشة والزهور والكريستال، آمنة على بشرة طفلتك الحساسة.",
-        seoTitle: "أقراط ذهب للأطفال والبنات",
+            "أقراط ذهب عيار 18 مريحة وآمنة على البشرة، بتصاميم القلب والفراشة والزهور والكريستال.",
+        seoTitle: "أقراط ذهب عيار 18",
         image: "/images/kids-earrings.webp",
-        alt: "طفلة ترتدي قرطًا ذهبيًا صغيرًا من بيبي أماليا",
+        alt: "قرط ذهبي صغير من بيبي أماليا",
     },
     {
         key: "necklaces",
         title: "قلائد",
         titleEn: "Necklaces",
-        singular: "سلسال",
         description:
-            "سلاسل ذهب رقيقة بتعليقات الفراشة والقلب واليونيكورن والصدف الطبيعي، هدية تكبر معها.",
-        seoTitle: "سلاسل وقلائد ذهب للبنات",
-        image: "/images/kids-necklace.webp",
-        alt: "طفلة بفستان وردي ترتدي سلسال ذهب من بيبي أماليا",
+            "سلاسل ذهب رقيقة بتعليقات الفراشة والقلب والصدف الطبيعي، قطع تُلبس كل يوم وتُهدى في كل مناسبة.",
+        seoTitle: "سلاسل وقلائد ذهب عيار 18",
+        image: "/images/gift-satin-necklace.webp",
+        alt: "سلسال الفراشة الذهبي من بيبي أماليا على ساتان أخضر",
     },
     {
         key: "bracelets",
         title: "أساور",
         titleEn: "Bracelets",
-        singular: "إسوارة",
         description:
-            "أساور ذهب بأحجام صغيرة مزينة بالزهور والتاج والأحجار الكريمة، لمعصم صغير وأناقة كبيرة.",
-        seoTitle: "أساور ذهب للأطفال",
+            "أساور ذهب ناعمة مزينة بالزهور والتاج والأحجار الكريمة، تفاصيل صغيرة بحضور كبير.",
+        seoTitle: "أساور ذهب عيار 18",
         image: "/images/kids-bracelet.webp",
-        alt: "طفلة تضع يديها على خديها وترتدي إسوارة ذهب بزهرة الصدف",
+        alt: "إسوارة ذهب بزهرة الصدف من بيبي أماليا",
     },
     {
         key: "newborn",
         title: "أقراط المواليد",
         titleEn: "Newborn",
-        singular: "قرط مواليد",
         description:
             "أقراط ذهب لحديثي الولادة بلون حجر شهر الميلاد، رقيقة وآمنة على بشرة المواليد — أجمل هدية للسبوع.",
         seoTitle: "أقراط ذهب لحديثي الولادة بحجر شهر الميلاد",

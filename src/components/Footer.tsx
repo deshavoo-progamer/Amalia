@@ -10,6 +10,8 @@ const footerColumns = [
         title: "تسوقي",
         links: [
             { label: "جميع المجوهرات", href: "/shop" },
+            { label: "للنساء", href: "/shop/women" },
+            { label: "للأطفال", href: "/shop/kids" },
             { label: "أقراط", href: "/shop/earrings" },
             { label: "قلائد", href: "/shop/necklaces" },
             { label: "أساور", href: "/shop/bracelets" },
@@ -65,8 +67,8 @@ export default function Footer() {
                             {siteConfig.tagline}
                         </p>
                         <p className="mt-6 max-w-sm leading-8 text-ivory/60">
-                            مجوهرات ذهب أنيقة وآمنة للأطفال، مصممة بعناية لتناسب
-                            بشرتهم الحساسة.
+                            مجوهرات ذهب عيار 18 لكِ ولصغيرتك، بحرفية أوروبية
+                            وأناقة تنتقل من جيل إلى جيل.
                         </p>
 
                         <ul className="mt-8 space-y-3 text-sm">

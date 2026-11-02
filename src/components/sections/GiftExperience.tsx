@@ -95,8 +95,8 @@ export default function GiftExperience() {
                             </span>
                         </h2>
                         <p className="mt-5 max-w-lg text-lg leading-8 text-ivory/70">
-                            قطعة ذهب صغيرة تحمل حبًا كبيرًا؛ تُهدى في أجمل
-                            لحظاتها وتبقى ذكرى تكبر معها.
+                            قطعة ذهب تحمل حبًا كبيرًا؛ لكِ أو لمن تحبين،
+                            تُهدى في أجمل اللحظات وتبقى ذكرى تدوم.
                         </p>
                     </Reveal>
 
