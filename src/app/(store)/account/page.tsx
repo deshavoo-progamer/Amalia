@@ -2,11 +2,12 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { headers } from "next/headers";
 import { redirect } from "next/navigation";
-import { ArrowLeft, Package, ShoppingBag, Smartphone } from "lucide-react";
+import { ArrowLeft, LayoutDashboard, Mail, Package, ShoppingBag, Smartphone } from "lucide-react";
 
 import SignOutButton from "@/components/auth/SignOutButton";
 import PageHeader from "@/components/ui/PageHeader";
-import { auth } from "@/lib/auth";
+import { isAdmin } from "@/lib/admin";
+import { auth, signInIdentity } from "@/lib/auth";
 
 export const metadata: Metadata = {
     title: "حسابي",
@@ -18,7 +19,8 @@ export default async function AccountPage() {
     const session = await auth.api.getSession({ headers: await headers() });
     if (!session) redirect("/login?redirect=/account");
 
-    const phone = "phoneNumber" in session.user ? String(session.user.phoneNumber ?? "") : "";
+    const identity = signInIdentity(session.user);
+    const IdentityIcon = identity.kind === "phone" ? Smartphone : Mail;
 
     return (
         <main id="main-content">
@@ -32,14 +34,25 @@ export default async function AccountPage() {
             <div className="mx-auto grid max-w-[1600px] gap-6 px-4 py-12 sm:px-8 sm:py-16 md:grid-cols-3 lg:px-12">
                 <section className="rounded-[1.5rem] border border-forest/10 bg-white/60 p-6 sm:p-8">
                     <span className="grid size-12 place-items-center rounded-full bg-gold/15 text-gold-deep">
-                        <Smartphone size={20} strokeWidth={1.5} />
+                        <IdentityIcon size={20} strokeWidth={1.5} />
                     </span>
                     <h2 className="mt-5 text-2xl">بيانات الدخول</h2>
-                    <p className="mt-2 text-sm text-forest/70">رقم الجوال المسجّل</p>
-                    <p dir="ltr" className="mt-1 text-end text-lg font-medium text-forest tabular-nums">
-                        {phone}
+                    <p className="mt-2 text-sm text-forest/70">
+                        {identity.kind === "phone" ? "رقم الجوال المسجّل" : "البريد الإلكتروني المسجّل"}
                     </p>
-                    <div className="mt-6">
+                    <p dir="ltr" className="mt-1 text-end text-lg font-medium break-all text-forest tabular-nums">
+                        {identity.value}
+                    </p>
+                    <div className="mt-6 flex flex-wrap items-center gap-3">
+                        {isAdmin(session.user) && (
+                            <Link
+                                href="/admin"
+                                className="inline-flex min-h-11 items-center gap-2 rounded-full bg-forest px-6 text-sm font-medium text-ivory transition-colors hover:bg-forest-deep"
+                            >
+                                <LayoutDashboard size={16} strokeWidth={1.5} />
+                                لوحة التحكم
+                            </Link>
+                        )}
                         <SignOutButton />
                     </div>
                 </section>

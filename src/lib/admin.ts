@@ -4,20 +4,26 @@ import { headers } from "next/headers";
 import { notFound, redirect } from "next/navigation";
 import { revalidatePath } from "next/cache";
 
-import { auth } from "./auth";
+import { auth, type Session } from "./auth";
 
-/** Admin phone numbers (E.164), from ADMIN_PHONES="+9665…,+9665…". */
-function adminPhones() {
-    return (process.env.ADMIN_PHONES ?? "")
+/** Comma-separated env list, e.g. ADMIN_PHONES="+9665…,+9665…" or ADMIN_EMAILS="a@b.com". */
+function envList(name: "ADMIN_PHONES" | "ADMIN_EMAILS") {
+    return (process.env[name] ?? "")
         .split(",")
-        .map((phone) => phone.trim())
+        .map((value) => value.trim().toLowerCase())
         .filter(Boolean);
+}
+
+export function isAdmin(user: Session["user"]) {
+    const phone = "phoneNumber" in user ? String(user.phoneNumber ?? "") : "";
+    return Boolean(
+        (phone && envList("ADMIN_PHONES").includes(phone)) || envList("ADMIN_EMAILS").includes(user.email.toLowerCase())
+    );
 }
 
 export async function getAdminSession() {
     const session = await auth.api.getSession({ headers: await headers() });
-    const phone = session?.user && "phoneNumber" in session.user ? session.user.phoneNumber : null;
-    return session && phone && adminPhones().includes(String(phone)) ? session : null;
+    return session && isAdmin(session.user) ? session : null;
 }
 
 /**

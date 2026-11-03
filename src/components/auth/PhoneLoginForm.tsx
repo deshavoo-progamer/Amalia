@@ -27,7 +27,8 @@ function errorMessage(error: { status?: number; message?: string } | null | unde
     return "تعذّر إكمال العملية الآن، حاولي بعد قليل.";
 }
 
-export default function LoginForm({ redirectTo }: { redirectTo: string }) {
+/** Phone OTP sign-in. Not mounted until an SMS provider is wired (see lib/sms.ts); EmailLoginForm is used meanwhile. */
+export default function PhoneLoginForm({ redirectTo }: { redirectTo: string }) {
     const router = useRouter();
     const [step, setStep] = useState<"phone" | "code">("phone");
     const [phoneInput, setPhoneInput] = useState("");

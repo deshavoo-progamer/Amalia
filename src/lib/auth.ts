@@ -22,12 +22,20 @@ export const auth = betterAuth({
         expiresIn: 60 * 60 * 24 * 30,
         updateAge: 60 * 60 * 24,
     },
-    // Serverless instances don't share memory, so OTP throttling is kept in the database.
+    // Interim sign-in until an SMS provider is wired; the phone OTP flow below stays ready.
+    emailAndPassword: {
+        enabled: true,
+        minPasswordLength: 8,
+        autoSignIn: true,
+    },
+    // Serverless instances don't share memory, so throttling is kept in the database.
     rateLimit: {
         enabled: true,
         storage: "database",
         modelName: "rateLimit",
         customRules: {
+            "/sign-in/email": { window: 60, max: 5 },
+            "/sign-up/email": { window: 60, max: 3 },
             "/phone-number/send-otp": { window: 60, max: 3 },
             "/phone-number/verify": { window: 60, max: 5 },
         },
@@ -51,3 +59,9 @@ export const auth = betterAuth({
 });
 
 export type Session = typeof auth.$Infer.Session;
+
+/** What the customer signs in with: their phone, or their email for email accounts. */
+export function signInIdentity(user: Session["user"]) {
+    const phone = "phoneNumber" in user ? String(user.phoneNumber ?? "") : "";
+    return phone ? { kind: "phone" as const, value: phone } : { kind: "email" as const, value: user.email };
+}

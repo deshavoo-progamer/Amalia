@@ -97,7 +97,7 @@ export default function ProductTable({ rows }: { rows: AdminProductRow[] }) {
 
             {/* relative: keeps the sr-only (absolute) labels inside the scroller instead of widening the page. */}
             <div className="relative mt-6 overflow-x-auto rounded-2xl border border-forest/10 bg-white">
-                <table className="w-full min-w-[46rem] text-sm">
+                <table className="w-full min-w-184 text-sm">
                     <thead className="border-b border-forest/10 bg-ivory text-start text-xs text-forest/70">
                         <tr>
                             <th scope="col" className="px-4 py-3 text-start font-medium">القطعة</th>
@@ -147,7 +147,7 @@ export default function ProductTable({ rows }: { rows: AdminProductRow[] }) {
                                                 <span
                                                     className={cn(
                                                         "absolute size-5 rounded-full bg-white shadow transition-[inset-inline-start]",
-                                                        on ? "start-[1.375rem]" : "start-0.5"
+                                                        on ? "inset-s-5.5" : "inset-s-0.5"
                                                     )}
                                                 />
                                             </button>

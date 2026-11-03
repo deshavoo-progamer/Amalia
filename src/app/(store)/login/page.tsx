@@ -4,7 +4,7 @@ import { headers } from "next/headers";
 import { redirect } from "next/navigation";
 import { BadgeCheck, Gem, Truck } from "lucide-react";
 
-import LoginForm from "@/components/auth/LoginForm";
+import EmailLoginForm from "@/components/auth/EmailLoginForm";
 import Emblem from "@/components/brand/Emblem";
 import { auth } from "@/lib/auth";
 import { safeRedirect } from "@/lib/redirect";
@@ -18,7 +18,7 @@ export const metadata: Metadata = {
 const perks = [
     { icon: Gem, text: "تابعي طلباتك وقطعك المفضلة" },
     { icon: Truck, text: "إتمام أسرع للطلب بعنوانك المحفوظ" },
-    { icon: BadgeCheck, text: "بلا كلمة مرور — رقم جوالك يكفي" },
+    { icon: BadgeCheck, text: "بياناتك محمية ولا نشاركها مع أحد" },
 ];
 
 export default async function LoginPage({ searchParams }: PageProps<"/login">) {
@@ -36,11 +36,11 @@ export default async function LoginPage({ searchParams }: PageProps<"/login">) {
                         أهلًا بكِ في بيبي أماليا
                     </h1>
                     <p className="mt-4 leading-8 text-forest/70">
-                        سجّلي دخولك أو أنشئي حسابك برقم جوالك لإتمام طلبك ومتابعته.
+                        سجّلي دخولك أو أنشئي حسابك ببريدك الإلكتروني لإتمام طلبك ومتابعته.
                     </p>
 
                     <div className="mt-10">
-                        <LoginForm redirectTo={redirectTo} />
+                        <EmailLoginForm redirectTo={redirectTo} />
                     </div>
 
                     <ul className="mt-10 space-y-3 border-t border-forest/10 pt-8 text-sm text-forest/70">

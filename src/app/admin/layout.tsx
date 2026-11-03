@@ -5,6 +5,7 @@ import { ExternalLink, LayoutDashboard, Package, Plus } from "lucide-react";
 import BabyWordmark from "@/components/brand/BabyWordmark";
 import SignOutButton from "@/components/auth/SignOutButton";
 import { requireAdmin } from "@/lib/admin";
+import { signInIdentity } from "@/lib/auth";
 
 export const metadata: Metadata = {
     title: { default: "لوحة التحكم", template: "%s | لوحة تحكم بيبي أماليا" },
@@ -19,7 +20,7 @@ const links = [
 
 export default async function AdminLayout({ children }: LayoutProps<"/admin">) {
     const session = await requireAdmin();
-    const phone = "phoneNumber" in session.user ? String(session.user.phoneNumber) : "";
+    const identity = signInIdentity(session.user);
 
     return (
         <div className="flex min-h-dvh flex-col bg-ivory-warm lg:flex-row">
@@ -56,8 +57,8 @@ export default async function AdminLayout({ children }: LayoutProps<"/admin">) {
 
                 <div className="hidden border-t border-ivory/10 px-7 py-6 lg:absolute lg:inset-x-0 lg:bottom-0 lg:block">
                     <p className="text-xs text-ivory/60">مسجّل باسم</p>
-                    <p dir="ltr" className="mt-1 text-end text-sm text-ivory tabular-nums">
-                        {phone}
+                    <p dir="ltr" className="mt-1 text-end text-sm break-all text-ivory tabular-nums">
+                        {identity.value}
                     </p>
                 </div>
             </aside>
