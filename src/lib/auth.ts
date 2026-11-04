@@ -50,7 +50,7 @@ export const auth = betterAuth({
             // Phone-only accounts: Better Auth still needs an email, so a private placeholder is stored.
             signUpOnVerification: {
                 getTempEmail: (value) => `${value.replace(/\D/g, "")}@phone.babyamalia.local`,
-                getTempName: () => "عميلة بيبي أماليا",
+                getTempName: () => "عميلة أماليا",
             },
         }),
         // Must stay last: lets server actions set the session cookie.

@@ -2,7 +2,7 @@
  * Catalog types and category metadata. Kept free of the product JSON so client components stay light.
  */
 
-/** Who a piece is designed for. Baby Amalia dresses women and children. */
+/** Who a piece is designed for. Amalia Jewellery dresses women and children. */
 export type Audience = "women" | "kids";
 
 /** Piece types (shared by both audiences). */
@@ -37,7 +37,6 @@ export type Product = {
 export type Category = {
     key: CategoryKey;
     title: string;
-    titleEn: string;
     description: string;
     seoTitle: string;
     image?: string;
@@ -48,57 +47,51 @@ export const categories: Category[] = [
     {
         key: "women",
         title: "للنساء",
-        titleEn: "For Her",
         description:
             "قطع ذهب عيار 18 بتصاميم راقية تكمّل إطلالتك اليومية وأجمل مناسباتك، بحرفية أوروبية تدوم معكِ.",
         seoTitle: "مجوهرات ذهب نسائية عيار 18",
         image: "/images/hero-satin.webp",
-        alt: "ساتان أخضر عميق بلمعة ناعمة — هوية بيبي أماليا",
+        alt: "ساتان أخضر عميق بلمعة ناعمة — هوية أماليا",
     },
     {
         key: "kids",
         title: "للأطفال",
-        titleEn: "For Little Ones",
         description:
             "أول ذهب في حياة صغيرتك: أقراط وسلاسل وأساور عيار 18 آمنة على البشرة الحساسة، بتصاميم تكبر معها.",
         seoTitle: "مجوهرات ذهب للأطفال والبنات",
         image: "/images/kids-necklace.webp",
-        alt: "طفلة بفستان وردي ترتدي سلسال ذهب من بيبي أماليا",
+        alt: "طفلة بفستان وردي ترتدي سلسال ذهب من أماليا",
     },
     {
         key: "earrings",
         title: "أقراط",
-        titleEn: "Earrings",
         description:
             "أقراط ذهب عيار 18 مريحة وآمنة على البشرة، بتصاميم القلب والفراشة والزهور والكريستال.",
         seoTitle: "أقراط ذهب عيار 18",
         image: "/images/kids-earrings.webp",
-        alt: "قرط ذهبي صغير من بيبي أماليا",
+        alt: "قرط ذهبي صغير من أماليا",
     },
     {
         key: "necklaces",
         title: "قلائد",
-        titleEn: "Necklaces",
         description:
             "سلاسل ذهب رقيقة بتعليقات الفراشة والقلب والصدف الطبيعي، قطع تُلبس كل يوم وتُهدى في كل مناسبة.",
         seoTitle: "سلاسل وقلائد ذهب عيار 18",
         image: "/images/gift-satin-necklace.webp",
-        alt: "سلسال الفراشة الذهبي من بيبي أماليا على ساتان أخضر",
+        alt: "سلسال الفراشة الذهبي من أماليا على ساتان أخضر",
     },
     {
         key: "bracelets",
         title: "أساور",
-        titleEn: "Bracelets",
         description:
             "أساور ذهب ناعمة مزينة بالزهور والتاج والأحجار الكريمة، تفاصيل صغيرة بحضور كبير.",
         seoTitle: "أساور ذهب عيار 18",
         image: "/images/kids-bracelet.webp",
-        alt: "إسوارة ذهب بزهرة الصدف من بيبي أماليا",
+        alt: "إسوارة ذهب بزهرة الصدف من أماليا",
     },
     {
         key: "newborn",
         title: "أقراط المواليد",
-        titleEn: "Newborn",
         description:
             "أقراط ذهب لحديثي الولادة بلون حجر شهر الميلاد، رقيقة وآمنة على بشرة المواليد — أجمل هدية للسبوع.",
         seoTitle: "أقراط ذهب لحديثي الولادة بحجر شهر الميلاد",
@@ -112,5 +105,5 @@ export function getCategory(key: string) {
 }
 
 export function productAlt(product: Product) {
-    return `${product.name} من بيبي أماليا${product.karat ? ` — ذهب عيار ${product.karat}` : ""}`;
+    return `${product.name} من أماليا${product.karat ? ` — ذهب عيار ${product.karat}` : ""}`;
 }

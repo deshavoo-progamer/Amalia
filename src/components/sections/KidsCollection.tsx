@@ -86,7 +86,7 @@ export default function KidsCollection() {
                         <div className="amalia-arch relative h-full overflow-hidden bg-forest">
                             <Image
                                 src="/images/detail-flowers.webp"
-                                alt="زهور بيضاء ناعمة بجانب علبة مجوهرات بيبي أماليا الخضراء"
+                                alt="زهور بيضاء ناعمة بجانب علبة مجوهرات أماليا الخضراء"
                                 fill
                                 sizes="(min-width: 1024px) 40vw, 90vw"
                                 className="object-cover transition-transform duration-[1.6s] ease-(--ease-luxe) hover:scale-110"

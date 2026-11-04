@@ -17,7 +17,7 @@ export default async function FeaturedProducts() {
         >
             <div className="mx-auto max-w-[1600px] px-4 sm:px-8 lg:px-12">
                 <Reveal as="header" className="mx-auto max-w-2xl text-center">
-                    <p className="amalia-eyebrow justify-center">The Boutique</p>
+                    <p className="amalia-eyebrow justify-center">البوتيك</p>
                     <h2
                         id="featured-title"
                         className="mt-4 text-3xl text-balance sm:text-4xl lg:text-5xl"

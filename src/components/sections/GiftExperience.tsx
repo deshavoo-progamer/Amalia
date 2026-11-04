@@ -10,6 +10,7 @@ import {
 } from "motion/react";
 import { ArrowLeft } from "lucide-react";
 
+import Emblem from "@/components/brand/Emblem";
 import MagneticLink from "@/components/ui/MagneticLink";
 import Reveal from "@/components/ui/Reveal";
 
@@ -57,7 +58,7 @@ export default function GiftExperience() {
                     >
                         <Image
                             src="/images/gift-satin-bracelet.webp"
-                            alt="إسوارة زهرة الكاميليا الذهبية من بيبي أماليا على ساتان أخضر"
+                            alt="إسوارة زهرة الكاميليا الذهبية من أماليا على ساتان أخضر"
                             fill
                             sizes="(min-width: 1024px) 38vw, 80vw"
                             className="object-cover"
@@ -104,9 +105,7 @@ export default function GiftExperience() {
                         {steps.map((step, index) => (
                             <Reveal key={step.title} as="li" delay={index * 0.1}>
                                 <div className="amalia-step group flex gap-5 rounded-2xl border border-ivory/10 p-5 transition-colors duration-500 hover:border-gold/40 hover:bg-ivory/5">
-                                    <span className="font-display text-3xl text-gold transition-transform duration-500 group-hover:-translate-y-1">
-                                        {String(index + 1).padStart(2, "0")}
-                                    </span>
+                                    <Emblem className="mt-1 size-7 shrink-0 transition-transform duration-700 ease-luxe group-hover:rotate-60" />
                                     <span>
                                         <span className="block text-lg font-medium">
                                             {step.title}

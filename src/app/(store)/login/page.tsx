@@ -31,9 +31,9 @@ export default async function LoginPage({ searchParams }: PageProps<"/login">) {
             <div className="mx-auto grid max-w-[1600px] items-center gap-12 px-4 py-14 sm:px-8 sm:py-20 lg:grid-cols-2 lg:gap-20 lg:px-12">
                 <section aria-labelledby="login-title" className="mx-auto w-full max-w-md">
                     <Emblem className="size-12" />
-                    <p className="amalia-eyebrow mt-8">Welcome</p>
+                    <p className="amalia-eyebrow mt-8">مرحبًا بكِ</p>
                     <h1 id="login-title" className="mt-3 text-4xl sm:text-5xl">
-                        أهلًا بكِ في بيبي أماليا
+                        حسابك في أماليا
                     </h1>
                     <p className="mt-4 leading-8 text-forest/70">
                         سجّلي دخولك أو أنشئي حسابك ببريدك الإلكتروني لإتمام طلبك ومتابعته.
@@ -61,7 +61,7 @@ export default async function LoginPage({ searchParams }: PageProps<"/login">) {
                     <div className="amalia-arch relative aspect-4/5 overflow-hidden bg-forest shadow-[0_50px_100px_-40px_rgb(10_33_29/60%)]">
                         <Image
                             src="/images/kids-necklace.webp"
-                            alt="طفلة ترتدي سلسال الفراشة الذهبي من بيبي أماليا"
+                            alt="طفلة ترتدي سلسال الفراشة الذهبي من أماليا"
                             fill
                             sizes="45vw"
                             className="object-cover"

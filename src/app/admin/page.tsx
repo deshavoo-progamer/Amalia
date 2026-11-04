@@ -31,7 +31,7 @@ export default async function AdminHome() {
         <div>
             <div className="flex flex-wrap items-end justify-between gap-6">
                 <div>
-                    <p className="amalia-eyebrow">Overview</p>
+                    <p className="amalia-eyebrow">لوحة التحكم</p>
                     <h1 className="mt-3 text-4xl">نظرة عامة</h1>
                 </div>
                 <Link

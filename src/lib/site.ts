@@ -1,10 +1,10 @@
 export const siteConfig = {
-    name: "بيبي أماليا",
-    nameEn: "Baby Amalia",
+    name: "أماليا للمجوهرات",
+    nameEn: "Amalia Jewellery",
     tagline: "Elegance in every touch",
     taglineAr: "أناقة في كل لمسة",
     description:
-        "بيبي أماليا — مجوهرات ذهب عيار 18 لكِ ولصغيرتك بحرفية أوروبية: أقراط وسلاسل وأساور للنساء والأطفال وهدايا المواليد، مع شحن لجميع مناطق المملكة.",
+        "أماليا للمجوهرات — ذهب عيار 18 لكِ ولصغيرتك بحرفية أوروبية: أقراط وسلاسل وأساور للنساء والأطفال وهدايا المواليد، مع شحن لجميع مناطق المملكة.",
     // Set NEXT_PUBLIC_SITE_URL once the final domain is live; on Vercel it falls back to the project's production domain.
     url:
         process.env.NEXT_PUBLIC_SITE_URL ??
@@ -14,8 +14,10 @@ export const siteConfig = {
     locale: "ar_SA",
     currency: "SAR",
     keywords: [
-        "بيبي أماليا",
-        "Baby Amalia",
+        "أماليا للمجوهرات",
+        "مجوهرات أماليا",
+        "Amalia Jewellery",
+        "Amalia Jewelry",
         "مجوهرات ذهب",
         "مجوهرات نسائية",
         "ذهب عيار 18",
@@ -60,7 +62,7 @@ export function whatsappLink(message: string) {
 }
 
 /** Default "I have a question" chat used by the header, footer and contact page. */
-export const contactWhatsappUrl = whatsappLink("مرحبا، عندي استفسار من متجر بيبي أماليا");
+export const contactWhatsappUrl = whatsappLink("مرحبا، عندي استفسار من متجر أماليا");
 
 export function absoluteUrl(path = "/") {
     return new URL(path, siteConfig.url).toString();

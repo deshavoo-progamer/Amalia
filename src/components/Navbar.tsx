@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
 import {
@@ -20,7 +20,7 @@ import {
     X,
 } from "lucide-react";
 
-import BabyWordmark from "@/components/brand/BabyWordmark";
+import Wordmark from "@/components/brand/Wordmark";
 import { useCart } from "@/lib/cart";
 import { contactWhatsappUrl } from "@/lib/site";
 
@@ -65,6 +65,11 @@ const iconLinks = [
     },
 ];
 
+// The announcement bar always shows within this distance of the page top.
+const BAR_TOP_ZONE = 48;
+// Scroll movement below this is ignored, so small finger jitter doesn't flicker the bar.
+const BAR_SCROLL_DELTA = 8;
+
 export default function Navbar() {
     const router = useRouter();
     const pathname = usePathname();
@@ -76,8 +81,35 @@ export default function Navbar() {
     const [categoriesOpen, setCategoriesOpen] = useState(false);
     const [searchOpen, setSearchOpen] = useState(false);
     const [searchQuery, setSearchQuery] = useState("");
+    const [barOffset, setBarOffset] = useState(0);
+    const announcementRef = useRef<HTMLDivElement>(null);
 
     const shouldReduceMotion = useReducedMotion();
+
+    // Scrolling down slides the header up by the bar's height; scrolling up brings it back.
+    // A transform, not a collapse: the page layout never changes, so nothing jumps mid-scroll.
+    useEffect(() => {
+        let lastY = window.scrollY;
+
+        function handleScroll() {
+            const y = window.scrollY;
+
+            if (y < BAR_TOP_ZONE) {
+                lastY = y;
+                setBarOffset(0);
+                return;
+            }
+
+            if (Math.abs(y - lastY) < BAR_SCROLL_DELTA) return;
+
+            setBarOffset(y > lastY ? (announcementRef.current?.offsetHeight ?? 0) : 0);
+            lastY = y;
+        }
+
+        window.addEventListener("scroll", handleScroll, { passive: true });
+
+        return () => window.removeEventListener("scroll", handleScroll);
+    }, []);
 
     useEffect(() => {
         if (!mobileMenuOpen && !searchOpen) return;
@@ -124,9 +156,10 @@ export default function Navbar() {
         <>
             <header
                 dir="rtl"
-                className="amalia-header sticky top-0 z-50 w-full"
+                className="amalia-header sticky top-0 z-50 w-full transition-[translate] duration-300 ease-out motion-reduce:transition-none"
+                style={barOffset ? { translate: `0 -${barOffset}px` } : undefined}
             >
-                <div className="amalia-announcement">
+                <div ref={announcementRef} className="amalia-announcement">
                     <div className="mx-auto flex min-h-9 max-w-[1600px] items-center justify-center px-4">
                         <p className="text-center text-[10px] font-medium tracking-[0.12em] sm:text-xs">
                             شحن لجميع مناطق المملكة خلال 3–5 أيام
@@ -184,12 +217,8 @@ export default function Navbar() {
                             href="/"
                             className="amalia-brand group flex flex-col items-center justify-center"
                         >
-                            <span className="sr-only">Baby Amalia Jewellery — الصفحة الرئيسية</span>
-                            <BabyWordmark className="amalia-brand-name w-36 sm:w-44 lg:w-52" />
-
-                            <span aria-hidden="true" className="amalia-brand-subtitle">
-                                J E W E L L E R Y
-                            </span>
+                            <span className="sr-only">Amalia Jewellery — الصفحة الرئيسية</span>
+                            <Wordmark className="amalia-brand-name w-40 sm:w-52 lg:w-60" />
                         </Link>
 
                         {/* Action icons */}
@@ -366,12 +395,8 @@ export default function Navbar() {
                                     onClick={closeMobileMenu}
                                     className="flex flex-col items-center"
                                 >
-                                    <span className="sr-only">Baby Amalia Jewellery — الصفحة الرئيسية</span>
-                                    <BabyWordmark className="amalia-brand-name w-36" />
-
-                                    <span aria-hidden="true" className="amalia-brand-subtitle">
-                                        J E W E L L E R Y
-                                    </span>
+                                    <span className="sr-only">Amalia Jewellery — الصفحة الرئيسية</span>
+                                    <Wordmark className="amalia-brand-name w-40" />
                                 </Link>
 
                                 <button

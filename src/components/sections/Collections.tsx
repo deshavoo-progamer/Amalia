@@ -54,7 +54,6 @@ export default function Collections() {
                         >
                             <CollectionCard
                                 collection={collection}
-                                index={index}
                                 sizes={layout[index]?.sizes ?? "100vw"}
                                 className="w-full"
                             />

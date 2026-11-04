@@ -1,5 +1,5 @@
 /* =========================================
-   Baby Amalia — Sections, hover & motion effects
+   Amalia Jewellery — Sections, hover & motion effects
 ========================================= */
 
 .amalia-eyebrow {
@@ -9,14 +9,6 @@
   color: var(--color-gold-ink);
   font-size: 0.8125rem;
   font-weight: 500;
-  letter-spacing: 0.18em;
-}
-
-.amalia-eyebrow::before {
-  width: 2rem;
-  height: 1px;
-  background: currentColor;
-  content: "";
 }
 
 .bg-forest .amalia-eyebrow,
@@ -578,15 +570,15 @@
 }
 
 /* =========================================
-   Baby Amalia wordmark (artwork used as a mask)
+   Amalia Jewellery wordmark (artwork used as a mask)
 ========================================= */
 
-.amalia-baby-wordmark {
+.amalia-logotype {
   display: block;
-  aspect-ratio: 1600 / 276;
+  aspect-ratio: 1600 / 241;
   background-color: currentColor;
-  -webkit-mask: url("/brand/baby-amalia-wordmark.webp") center / contain no-repeat;
-  mask: url("/brand/baby-amalia-wordmark.webp") center / contain no-repeat;
+  -webkit-mask: url("/brand/amalia-jewellery-wordmark.webp") center / contain no-repeat;
+  mask: url("/brand/amalia-jewellery-wordmark.webp") center / contain no-repeat;
 }
 
 .amalia-emblem {

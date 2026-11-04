@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { MessageCircle, Phone } from "lucide-react";
 
-import BabyWordmark from "@/components/brand/BabyWordmark";
+import Wordmark from "@/components/brand/Wordmark";
 import Emblem from "@/components/brand/Emblem";
 import { contactWhatsappUrl, siteConfig } from "@/lib/site";
 
@@ -19,7 +19,7 @@ const footerColumns = [
         ],
     },
     {
-        title: "بيبي أماليا",
+        title: "أماليا",
         links: [
             { label: "من نحن", href: "/about" },
             { label: "العناية بالمجوهرات", href: "/care" },
@@ -58,7 +58,7 @@ export default function Footer() {
                             className="group inline-flex flex-col items-start gap-5"
                         >
                             <Emblem className="size-12 transition-transform duration-1000 ease-luxe group-hover:rotate-180" />
-                            <BabyWordmark className="w-64 text-ivory" />
+                            <Wordmark className="w-64 text-ivory" />
                         </Link>
                         <p
                             lang="en"
@@ -140,7 +140,7 @@ export default function Footer() {
                     aria-hidden="true"
                     className="amalia-footer-giant mt-20 text-ivory/6"
                 >
-                    <BabyWordmark className="w-full" />
+                    <Wordmark className="w-full" />
                 </div>
 
                 <div className="mt-10 flex flex-col items-center justify-between gap-4 border-t border-ivory/10 pt-8 text-xs text-ivory/60 sm:flex-row">

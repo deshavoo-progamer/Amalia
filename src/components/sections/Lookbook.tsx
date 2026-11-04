@@ -19,7 +19,7 @@ function LookCard({ look, index }: { look: Look; index: number }) {
     return (
         <figure
             className={cn(
-                "amalia-look group relative h-[min(56vh,34rem)] shrink-0 overflow-hidden rounded-[1.5rem] bg-forest",
+                "amalia-look group relative h-[min(56vh,34rem)] shrink-0 overflow-hidden rounded-3xl bg-forest",
                 "aspect-4/5",
                 index % 2 === 1 && "lg:translate-y-12"
             )}
@@ -38,13 +38,7 @@ function LookCard({ look, index }: { look: Look; index: number }) {
             />
 
             <figcaption className="absolute inset-x-0 bottom-0 p-6 text-ivory sm:p-8">
-                <span
-                    lang="en"
-                    className="block font-display text-sm tracking-[0.3em] text-gold uppercase"
-                >
-                    {String(index + 1).padStart(2, "0")} — {look.caption}
-                </span>
-                <span className="amalia-look-title mt-2 block text-2xl font-medium sm:text-3xl">
+                <span className="amalia-look-title block text-2xl font-medium sm:text-3xl">
                     {look.title}
                 </span>
             </figcaption>
@@ -94,7 +88,7 @@ export default function Lookbook() {
                 id="lookbook-title"
                 className="mt-4 text-4xl text-ivory sm:text-5xl"
             >
-                عالم بيبي أماليا
+                عالم أماليا
                 <span lang="en" className="text-gold-gradient block font-display italic">
                     in every touch
                 </span>

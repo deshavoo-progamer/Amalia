@@ -9,7 +9,7 @@ import "server-only";
  */
 export async function sendLoginCode(phoneNumber: string, code: string) {
     if (process.env.NODE_ENV !== "production") {
-        console.info(`[sms] Baby Amalia login code for ${phoneNumber}: ${code}`);
+        console.info(`[sms] Amalia Jewellery login code for ${phoneNumber}: ${code}`);
         return;
     }
 

@@ -27,7 +27,7 @@ const promises = [
 
 export default function Promises() {
     return (
-        <section aria-label="وعود بيبي أماليا" className="bg-ivory py-16 sm:py-20">
+        <section aria-label="وعود أماليا" className="bg-ivory py-16 sm:py-20">
             <div className="mx-auto max-w-[1600px] sm:px-8 lg:px-12">
                 <ul className="grid grid-cols-2 gap-px overflow-hidden border border-forest/10 bg-forest/10 lg:grid-cols-4">
                     {promises.map(({ icon: Icon, title, text }, index) => (

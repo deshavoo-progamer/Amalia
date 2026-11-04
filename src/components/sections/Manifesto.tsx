@@ -56,7 +56,7 @@ export default function Manifesto() {
 
     return (
         <section
-            aria-label="فلسفة بيبي أماليا"
+            aria-label="فلسفة أماليا"
             className="relative overflow-hidden bg-ivory py-28 sm:py-40"
         >
             <Emblem

@@ -25,7 +25,7 @@ export default async function AccountPage() {
     return (
         <main id="main-content">
             <PageHeader
-                eyebrow="My Account"
+                eyebrow="مساحتك الخاصة"
                 title="حسابي"
                 description="أهلًا بكِ من جديد. من هنا تتابعين طلباتك وتديرين بيانات حسابك."
                 breadcrumbs={[{ label: "حسابي", href: "/account" }]}

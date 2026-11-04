@@ -175,7 +175,7 @@ export default function StickyStory() {
             }
         >
             <h2 id="story-title" className="sr-only">
-                قصة بيبي أماليا
+                قصة أماليا
             </h2>
 
             {shouldReduceMotion ? (
@@ -194,15 +194,6 @@ export default function StickyStory() {
                     <div className="mx-auto grid h-full max-w-[1600px] grid-rows-2 gap-6 px-4 py-6 sm:px-8 lg:grid-cols-[1fr_1.1fr] lg:grid-rows-1 lg:gap-16 lg:px-12 lg:py-10">
                         {/* Text column (right in RTL) */}
                         <div className="relative order-2 lg:order-1">
-                            <div className="absolute top-0 right-0 hidden items-center gap-4 lg:flex">
-                                <span className="font-display text-5xl text-gold tabular-nums">
-                                    {String(active + 1).padStart(2, "0")}
-                                </span>
-                                <span className="font-display text-lg text-ivory/60">
-                                    / {String(COUNT).padStart(2, "0")}
-                                </span>
-                            </div>
-
                             <div className="relative h-full">
                                 {storyChapters.map((chapter, index) => (
                                     <StoryText

@@ -57,7 +57,7 @@ export default function CartView({ products }: { products: CartProduct[] }) {
     const total = subtotal + shipping.price;
 
     const orderMessage = [
-        "مرحبا، أرغب بإتمام طلبي من بيبي أماليا:",
+        "مرحبا، أرغب بإتمام طلبي من أماليا:",
         ...payable.map(({ line, product }) => `• ${product.name} × ${line.qty} — ${formatPrice(product.price * line.qty)}`),
         `الشحن: ${shipping.label} — ${formatPrice(shipping.price)}`,
         `الإجمالي: ${formatPrice(total)}`,

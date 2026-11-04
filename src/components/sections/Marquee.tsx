@@ -6,7 +6,7 @@ const items = [
     "للنساء والأطفال",
     "شحن لجميع مناطق المملكة",
     "حرفية أوروبية",
-    "Baby Amalia",
+    "Amalia Jewellery",
 ];
 
 function MarqueeGroup({ hidden = false }: { hidden?: boolean }) {
@@ -37,11 +37,14 @@ function MarqueeGroup({ hidden = false }: { hidden?: boolean }) {
 
 export default function Marquee() {
     return (
+        // dir="ltr" sits on the section: an over-wide track aligns by its parent's direction, and an RTL parent
+        // pins it to the right edge, so sliding left would leave the right side empty.
         <section
-            aria-label="مميزات بيبي أماليا"
+            dir="ltr"
+            aria-label="مميزات أماليا"
             className="amalia-marquee relative overflow-hidden border-y border-gold/25 bg-forest py-6 text-ivory"
         >
-            <div dir="ltr" className="amalia-marquee-track">
+            <div className="amalia-marquee-track">
                 <MarqueeGroup />
                 <MarqueeGroup hidden />
             </div>

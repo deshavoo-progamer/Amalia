@@ -22,7 +22,7 @@ export default async function EditProductPage({ params }: PageProps<"/admin/prod
         <div>
             <div className="mb-10 flex flex-wrap items-end justify-between gap-4">
                 <div>
-                    <p className="amalia-eyebrow">Edit piece</p>
+                    <p className="amalia-eyebrow">تعديل قطعة</p>
                     <h1 className="mt-3 text-4xl">{row.name}</h1>
                 </div>
                 {row.published && (

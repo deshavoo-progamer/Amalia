@@ -28,7 +28,7 @@ export default async function CartPage() {
     return (
         <main id="main-content">
             <PageHeader
-                eyebrow="Your Bag"
+                eyebrow="قطعك المختارة"
                 title="حقيبة التسوق"
                 breadcrumbs={[{ label: "حقيبة التسوق", href: "/cart" }]}
             />

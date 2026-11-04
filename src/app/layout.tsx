@@ -85,7 +85,7 @@ export const viewport: Viewport = {
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
   // Brand marks are CSS masks: discovered late (after CSS) and fetched in CORS mode.
-  preload("/brand/baby-amalia-wordmark.webp", { as: "image", type: "image/webp", crossOrigin: "anonymous", fetchPriority: "high" });
+  preload("/brand/amalia-jewellery-wordmark.webp", { as: "image", type: "image/webp", crossOrigin: "anonymous", fetchPriority: "high" });
   preload("/brand/emblem.svg", { as: "image", type: "image/svg+xml", crossOrigin: "anonymous" });
 
   return (

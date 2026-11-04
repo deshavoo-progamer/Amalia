@@ -35,7 +35,7 @@ export default function Newsletter() {
                 />
 
                 <div className="relative mx-auto max-w-2xl">
-                    <p className="amalia-eyebrow justify-center">عائلة بيبي أماليا</p>
+                    <p className="amalia-eyebrow justify-center">عائلة أماليا</p>
                     <h2
                         id="newsletter-title"
                         className="mt-4 text-3xl sm:text-4xl lg:text-5xl"

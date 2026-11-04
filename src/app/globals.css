@@ -35,7 +35,7 @@
 }
 
 /* =========================================
-   Baby Amalia — Brand & Navbar
+   Amalia Jewellery — Brand & Navbar
 ========================================= */
 
 :root {
@@ -58,6 +58,44 @@
 html {
   scroll-padding-top: calc(var(--header-h) + 1rem);
   background-color: var(--color-ivory);
+}
+
+/* Page scrollbar: a gold chain with a pearl pendant, sliding down an ivory track.
+   Scoped to html so inner scrollers (admin table, mobile drawer) keep their native bars. */
+html::-webkit-scrollbar {
+  width: 14px;
+}
+
+html::-webkit-scrollbar-button {
+  display: none;
+}
+
+html::-webkit-scrollbar-track {
+  background: linear-gradient(to right, rgb(17 49 44 / 8%) 1px, var(--color-ivory) 1px);
+}
+
+html::-webkit-scrollbar-thumb {
+  border-radius: 999px;
+  background-color: transparent;
+  background-image:
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='18' viewBox='0 0 14 18'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0' stop-color='%23d9bd8a'/%3E%3Cstop offset='.55' stop-color='%23b08f5c'/%3E%3Cstop offset='1' stop-color='%238a6a3a'/%3E%3C/linearGradient%3E%3CradialGradient id='p' cx='.38' cy='.34' r='.75'%3E%3Cstop offset='0' stop-color='%23fffdf8'/%3E%3Cstop offset='.6' stop-color='%23f2e9da'/%3E%3Cstop offset='1' stop-color='%23cdbba0'/%3E%3C/radialGradient%3E%3C/defs%3E%3Ccircle cx='7' cy='2.4' r='1.7' fill='none' stroke='url(%23g)' stroke-width='1.2'/%3E%3Ccircle cx='7' cy='11' r='6.2' fill='url(%23g)'/%3E%3Ccircle cx='7' cy='11' r='4.4' fill='url(%23p)'/%3E%3C/svg%3E"),
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='16' viewBox='0 0 14 16'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0' stop-color='%23d9bd8a'/%3E%3Cstop offset='.55' stop-color='%23b08f5c'/%3E%3Cstop offset='1' stop-color='%238a6a3a'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect x='6.1' y='-1' width='1.8' height='3' rx='.9' fill='url(%23g)'/%3E%3Crect x='6.1' y='8.4' width='1.8' height='8.6' rx='.9' fill='url(%23g)'/%3E%3Cellipse cx='7' cy='5' rx='3.1' ry='4.5' fill='none' stroke='url(%23g)' stroke-width='1.5'/%3E%3C/svg%3E");
+  background-repeat: no-repeat, repeat-y;
+  background-position: center bottom 2px, center top;
+  background-size: 14px 18px, 14px 16px;
+}
+
+html::-webkit-scrollbar-thumb:hover,
+html::-webkit-scrollbar-thumb:active {
+  background-color: rgb(198 165 117 / 16%);
+}
+
+/* Firefox has no custom thumb artwork, so it gets the same colors. Only here: in Chrome,
+   scrollbar-color would switch off the chain above. */
+@supports not selector(::-webkit-scrollbar) {
+  html {
+    scrollbar-color: var(--color-gold) var(--color-ivory);
+  }
 }
 
 @media (prefers-reduced-motion: no-preference) {
@@ -90,7 +128,8 @@ body {
   .font-heading {
     font-family: var(--font-heading);
     font-weight: 400;
-    line-height: 1.5;
+    /* !important: text-* utilities set a tight line-height that makes Arabic marks collide across lines. */
+    line-height: 1.5 !important;
   }
 }
 
@@ -138,16 +177,6 @@ button:not(:disabled),
 
   .amalia-brand:hover .amalia-brand-name {
     color: #a7834f;
-  }
-
-  .amalia-brand-subtitle {
-    margin-top: 6px;
-    color: var(--color-gold-ink);
-    font-family: Arial, sans-serif;
-    font-size: 8px;
-    font-weight: 500;
-    line-height: 1;
-    white-space: nowrap;
   }
 
   .amalia-icon-button {
@@ -263,10 +292,6 @@ button:not(:disabled),
   @media (max-width: 639px) {
     .amalia-brand-name {
       font-size: 1.9rem;
-    }
-
-    .amalia-brand-subtitle {
-      font-size: 7px;
     }
   }
 

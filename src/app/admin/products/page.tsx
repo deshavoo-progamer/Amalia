@@ -35,7 +35,7 @@ export default async function AdminProductsPage({ searchParams }: PageProps<"/ad
         <div>
             <div className="flex flex-wrap items-end justify-between gap-6">
                 <div>
-                    <p className="amalia-eyebrow">Products</p>
+                    <p className="amalia-eyebrow">إدارة المتجر</p>
                     <h1 className="mt-3 text-4xl">المنتجات</h1>
                 </div>
                 <Link

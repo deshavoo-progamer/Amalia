@@ -11,14 +11,12 @@ import { cn } from "@/lib/cn";
 
 type CollectionCardProps = {
     collection: Collection;
-    index: number;
     sizes: string;
     className?: string;
 };
 
 export default function CollectionCard({
     collection,
-    index,
     sizes,
     className,
 }: CollectionCardProps) {
@@ -51,6 +49,7 @@ export default function CollectionCard({
                     fill
                     sizes={sizes}
                     className="amalia-collection-image -z-20 object-cover"
+                    style={{ objectPosition: collection.imagePosition }}
                 />
             ) : (
                 <div
@@ -63,7 +62,7 @@ export default function CollectionCard({
 
             <div
                 aria-hidden="true"
-                className="absolute inset-0 -z-10 bg-linear-to-t from-forest-deep/90 via-forest-deep/20 to-transparent transition-opacity duration-700 group-hover:opacity-90"
+                className="absolute inset-0 -z-10 bg-linear-to-t from-forest-deep/95 via-forest-deep/40 via-35% to-transparent to-70% transition-opacity duration-700 group-hover:opacity-90"
             />
             <div aria-hidden="true" className="amalia-spotlight" />
 
@@ -77,20 +76,10 @@ export default function CollectionCard({
 
             <Link
                 href={collection.href}
-                className="relative flex h-full flex-col justify-between p-6 text-ivory outline-none sm:p-8"
+                className="relative flex h-full flex-col justify-end p-6 text-ivory outline-none sm:p-8"
             >
-                <span className="font-display text-sm tracking-[0.25em] text-gold">
-                    {String(index + 1).padStart(2, "0")}
-                </span>
-
                 <span className="block">
-                    <span
-                        lang="en"
-                        className="block font-display text-lg text-gold-light italic opacity-80"
-                    >
-                        {collection.titleEn}
-                    </span>
-                    <span className="amalia-collection-title mt-1 block text-3xl font-medium sm:text-4xl">
+                    <span className="amalia-collection-title block text-3xl font-medium sm:text-4xl">
                         {collection.title}
                     </span>
                     <span className="mt-3 block max-w-xs text-sm leading-7 text-ivory/70">

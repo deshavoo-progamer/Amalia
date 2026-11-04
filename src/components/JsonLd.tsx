@@ -21,7 +21,7 @@ export default function JsonLd() {
                 "@type": "JewelryStore",
                 "@id": `${url}/#store`,
                 name: siteConfig.nameEn,
-                alternateName: [siteConfig.name, "Baby Amalia Jewelry"],
+                alternateName: [siteConfig.name, "Amalia Jewelry"],
                 slogan: siteConfig.tagline,
                 description: siteConfig.description,
                 url,

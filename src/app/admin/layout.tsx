@@ -2,13 +2,13 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { ExternalLink, LayoutDashboard, Package, Plus } from "lucide-react";
 
-import BabyWordmark from "@/components/brand/BabyWordmark";
+import Wordmark from "@/components/brand/Wordmark";
 import SignOutButton from "@/components/auth/SignOutButton";
 import { requireAdmin } from "@/lib/admin";
 import { signInIdentity } from "@/lib/auth";
 
 export const metadata: Metadata = {
-    title: { default: "لوحة التحكم", template: "%s | لوحة تحكم بيبي أماليا" },
+    title: { default: "لوحة التحكم", template: "%s | لوحة تحكم أماليا" },
     robots: { index: false, follow: false },
 };
 
@@ -27,7 +27,7 @@ export default async function AdminLayout({ children }: LayoutProps<"/admin">) {
             <aside className="bg-forest-deep text-ivory lg:sticky lg:top-0 lg:h-dvh lg:w-72 lg:shrink-0">
                 <div className="flex items-center justify-between gap-4 px-5 py-5 lg:block lg:px-7 lg:py-8">
                     <Link href="/admin" className="block text-ivory">
-                        <BabyWordmark className="w-32 lg:w-40" />
+                        <Wordmark className="w-32 lg:w-40" />
                         <span className="mt-1 block text-[11px] tracking-[0.2em] text-gold">ADMIN</span>
                     </Link>
                     <Link

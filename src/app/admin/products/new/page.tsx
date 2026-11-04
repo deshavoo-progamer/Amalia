@@ -11,7 +11,7 @@ export default async function NewProductPage({ searchParams }: PageProps<"/admin
 
     return (
         <div>
-            <p className="amalia-eyebrow">New piece</p>
+            <p className="amalia-eyebrow">قطعة جديدة</p>
             <h1 className="mt-3 mb-10 text-4xl">إضافة منتج</h1>
             <ProductForm
                 initial={{

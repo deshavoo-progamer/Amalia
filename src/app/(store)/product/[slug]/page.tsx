@@ -41,7 +41,7 @@ function describe(product: Product) {
         product.weight && `بوزن ${product.weight} جرام`,
         product.code && `رمز ${product.code}`,
     ].filter(Boolean);
-    const generated = `${product.name} من مجموعة ${category?.title ?? "المجوهرات"} في بيبي أماليا${details.length ? ` (${details.join("، ")})` : ""}، ${product.audience === "kids" ? "مصممة بعناية لتناسب بشرة الأطفال الحساسة" : "بتصميم راقٍ يكمّل إطلالتك"} بحرفية أوروبية.`;
+    const generated = `${product.name} من مجموعة ${category?.title ?? "المجوهرات"} في أماليا${details.length ? ` (${details.join("، ")})` : ""}، ${product.audience === "kids" ? "مصممة بعناية لتناسب بشرة الأطفال الحساسة" : "بتصميم راقٍ يكمّل إطلالتك"} بحرفية أوروبية.`;
 
     return product.story ? `${product.story} ${generated}` : generated;
 }
@@ -174,15 +174,15 @@ export default async function ProductPage({ params }: PageProps<"/product/[slug]
 
                     <div>
                         <p className="amalia-eyebrow">
-                            {category.titleEn}
-                            {product.karat && ` · ${product.karat}K Gold`}
+                            {category.title}
+                            {product.karat && ` · ذهب عيار ${product.karat}`}
                         </p>
                         <h1 className="mt-4 text-3xl text-balance text-forest sm:text-4xl">
                             {product.name}
                         </h1>
                         {product.code && (
-                            <p lang="en" className="mt-1 font-display text-lg text-forest/70 italic">
-                                Ref. {product.code}
+                            <p className="mt-1 text-sm text-forest/70">
+                                رمز القطعة: <span dir="ltr">{product.code}</span>
                             </p>
                         )}
 

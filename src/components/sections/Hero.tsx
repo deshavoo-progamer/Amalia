@@ -11,7 +11,7 @@ import {
 import { ArrowLeft } from "lucide-react";
 
 import Emblem from "@/components/brand/Emblem";
-import BabyWordmark from "@/components/brand/BabyWordmark";
+import Wordmark from "@/components/brand/Wordmark";
 import MagneticLink from "@/components/ui/MagneticLink";
 import { siteConfig } from "@/lib/site";
 
@@ -150,7 +150,7 @@ export default function Hero() {
                     </span>
 
                     <span className="amalia-wordmark-reveal mx-auto block w-[min(88vw,46rem)] text-ivory drop-shadow-[0_6px_24px_rgb(0_0_0/35%)]">
-                        <BabyWordmark className="w-full" />
+                        <Wordmark className="w-full" />
                     </span>
                 </h1>
 
