@@ -92,6 +92,8 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
     <html
       lang="ar"
       dir="rtl"
+      // Page changes land instantly at the top; smooth scrolling stays for in-page anchors.
+      data-scroll-behavior="smooth"
       className={`${readex.variable} ${amiri.variable} ${cormorant.variable} h-full antialiased`}
     >
       <body className="flex min-h-full flex-col">

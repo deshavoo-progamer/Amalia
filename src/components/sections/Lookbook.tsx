@@ -37,7 +37,7 @@ function LookCard({ look, index }: { look: Look; index: number }) {
                 className="absolute inset-0 bg-linear-to-t from-forest-deep/85 via-transparent to-transparent opacity-70 transition-opacity duration-700 group-hover:opacity-100"
             />
 
-            <figcaption className="absolute inset-x-0 bottom-0 p-6 text-ivory sm:p-8">
+            <figcaption className="absolute inset-x-0 bottom-0 p-6 text-ivory [text-shadow:0_1px_14px_rgb(10_33_29/80%)] sm:p-8">
                 <span className="amalia-look-title block text-2xl font-medium sm:text-3xl">
                     {look.title}
                 </span>
@@ -94,7 +94,7 @@ export default function Lookbook() {
                 </span>
             </h2>
             <p className="mt-5 leading-8 text-ivory/65">
-                لقطات من عالم أميراتنا الصغيرات: ذهب ناعم، وألوان هادئة، وتفاصيل
+                لقطات من عالم أماليا: ذهب ناعم، وألوان هادئة، وتفاصيل
                 تُروى بحب.
             </p>
         </div>

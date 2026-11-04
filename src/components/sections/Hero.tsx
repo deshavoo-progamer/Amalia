@@ -112,64 +112,66 @@ export default function Hero() {
             ))}
 
             <motion.div
-                style={
-                    shouldReduceMotion
-                        ? undefined
-                        : { y: contentY, opacity: contentOpacity }
-                }
+                style={shouldReduceMotion ? undefined : { y: contentY }}
                 className="relative mx-auto flex w-full max-w-5xl flex-col items-center px-5 py-20 text-center sm:py-24"
             >
-                {/* Emblem with orbiting halo */}
+                {/* Only the copy fades on scroll: the buttons stay solid until they leave the screen. */}
                 <motion.div
-                    initial={
-                        shouldReduceMotion
-                            ? false
-                            : { opacity: 0, scale: 0.5, rotate: -120 }
-                    }
-                    animate={{ opacity: 1, scale: 1, rotate: 0 }}
-                    transition={{ duration: 1.6, ease: EASE }}
-                    className="relative grid size-28 place-items-center sm:size-36"
+                    style={shouldReduceMotion ? undefined : { opacity: contentOpacity }}
+                    className="flex w-full flex-col items-center"
                 >
-                    <span aria-hidden="true" className="amalia-halo" />
-                    <motion.span
-                        style={
+                    {/* Emblem with orbiting halo */}
+                    <motion.div
+                        initial={
                             shouldReduceMotion
-                                ? undefined
-                                : { rotate: emblemRotate }
+                                ? false
+                                : { opacity: 0, scale: 0.5, rotate: -120 }
                         }
-                        className="block size-16 drop-shadow-[0_8px_30px_rgb(198_165_117/45%)] sm:size-20"
+                        animate={{ opacity: 1, scale: 1, rotate: 0 }}
+                        transition={{ duration: 1.6, ease: EASE }}
+                        className="relative grid size-28 place-items-center sm:size-36"
                     >
-                        <Emblem className="size-full" />
-                    </motion.span>
+                        <span aria-hidden="true" className="amalia-halo" />
+                        <motion.span
+                            style={
+                                shouldReduceMotion
+                                    ? undefined
+                                    : { rotate: emblemRotate }
+                            }
+                            className="block size-16 drop-shadow-[0_8px_30px_rgb(198_165_117/45%)] sm:size-20"
+                        >
+                            <Emblem className="size-full" />
+                        </motion.span>
+                    </motion.div>
+
+                    <h1 id="hero-title" className="mt-8 w-full sm:mt-10">
+                        <span className="sr-only">
+                            {siteConfig.name} — {siteConfig.nameEn}: مجوهرات ذهب
+                            للنساء والأطفال
+                        </span>
+
+                        <span className="amalia-wordmark-reveal mx-auto block w-[min(88vw,46rem)] text-ivory drop-shadow-[0_6px_24px_rgb(0_0_0/35%)]">
+                            <Wordmark className="w-full" />
+                        </span>
+                    </h1>
+
+                    <p
+                        style={enter(0.7, 12)}
+                        lang="en"
+                        dir="ltr"
+                        className="amalia-enter text-gold-gradient mt-5 font-display text-xl tracking-[0.08em] italic sm:text-2xl"
+                    >
+                        {siteConfig.tagline}
+                    </p>
+
+                    <p
+                        style={enter(0.85)}
+                        className="amalia-enter mt-6 max-w-xl text-base leading-8 text-pretty text-ivory/75 sm:text-lg"
+                    >
+                        مجوهرات ذهب عيار 18 لكِ ولصغيرتك — من قطعك اليومية وأجمل
+                        مناسباتك إلى أول قرط في حياتها، بحرفية أوروبية تدوم.
+                    </p>
                 </motion.div>
-
-                <h1 id="hero-title" className="mt-8 w-full sm:mt-10">
-                    <span className="sr-only">
-                        {siteConfig.name} — {siteConfig.nameEn}: مجوهرات ذهب
-                        للنساء والأطفال
-                    </span>
-
-                    <span className="amalia-wordmark-reveal mx-auto block w-[min(88vw,46rem)] text-ivory drop-shadow-[0_6px_24px_rgb(0_0_0/35%)]">
-                        <Wordmark className="w-full" />
-                    </span>
-                </h1>
-
-                <p
-                    style={enter(0.7, 12)}
-                    lang="en"
-                    dir="ltr"
-                    className="amalia-enter text-gold-gradient mt-5 font-display text-xl tracking-[0.08em] italic sm:text-2xl"
-                >
-                    {siteConfig.tagline}
-                </p>
-
-                <p
-                    style={enter(0.85)}
-                    className="amalia-enter mt-6 max-w-xl text-base leading-8 text-pretty text-ivory/75 sm:text-lg"
-                >
-                    مجوهرات ذهب عيار 18 لكِ ولصغيرتك — من قطعك اليومية وأجمل
-                    مناسباتك إلى أول قرط في حياتها، بحرفية أوروبية تدوم.
-                </p>
 
                 <div
                     style={enter(1)}

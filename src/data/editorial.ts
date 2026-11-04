@@ -96,28 +96,28 @@ export const storyChapters = [
 
 export const lookbook = [
     {
-        image: "/images/kids-necklace.webp",
+        image: "/images/look-flower-bangle.webp",
         title: "إطلالة الأميرة",
-        alt: "طفلة بفستان وردي مطرز ترتدي سلسال ذهب من أماليا",
+        alt: "إسوارة ذهب مرصعة بثلاث زهرات من الأحجار اللامعة من أماليا على حجر طبيعي",
     },
     {
-        image: "/images/kids-earrings.webp",
+        image: "/images/look-flower-necklace.webp",
         title: "لمعة ناعمة",
-        alt: "طفلة ترتدي قرطًا ذهبيًا من أماليا",
+        alt: "سلسال ذهب بدلاية زهرة من الأحجار اللامعة من أماليا",
     },
     {
-        image: "/images/kids-bracelet.webp",
+        image: "/images/look-flower-bracelet.webp",
         title: "زهرة على المعصم",
-        alt: "طفلة ترتدي إسوارة ذهب بزهرة الصدف",
+        alt: "إسوارة ذهب رقيقة بزهرة الصدف من أماليا على وسادة مخملية",
     },
     {
-        image: "/images/gift-satin-earrings.webp",
+        image: "/images/look-gift-ring.webp",
         title: "فن الإهداء",
-        alt: "أقراط الفيونكة الذهبية من أماليا على ساتان أخضر",
+        alt: "خاتم ذهب مرصع بالأحجار اللامعة من أماليا داخل علبة هدايا",
     },
     {
-        image: "/images/look-pearl-necklace.webp",
+        image: "/images/look-pearl-earrings.webp",
         title: "لمسة رقيقة",
-        alt: "سلسال ذهب رقيق بلؤلؤة وكرتين ذهبيتين من أماليا معلّق على منحنى أخضر",
+        alt: "قرطان ذهبيان بلؤلؤة وحجر أزرق فاتح من أماليا على حجر طبيعي",
     },
 ];

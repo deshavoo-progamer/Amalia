@@ -138,6 +138,16 @@ export default function Navbar() {
         setCategoriesOpen(false);
     }
 
+    // Already on the home page: jump straight to the hero instead of smooth-scrolling past every section.
+    function handleBrandClick(event: React.MouseEvent<HTMLAnchorElement>) {
+        closeMobileMenu();
+
+        if (pathname !== "/" || event.metaKey || event.ctrlKey) return;
+
+        event.preventDefault();
+        window.scrollTo({ top: 0, behavior: "instant" });
+    }
+
     function handleSearchSubmit(
         event: React.FormEvent<HTMLFormElement>
     ) {
@@ -215,6 +225,7 @@ export default function Navbar() {
                         {/* Brand */}
                         <Link
                             href="/"
+                            onClick={handleBrandClick}
                             className="amalia-brand group flex flex-col items-center justify-center"
                         >
                             <span className="sr-only">Amalia Jewellery — الصفحة الرئيسية</span>
@@ -392,7 +403,7 @@ export default function Navbar() {
                             <div className="flex min-h-22.5 items-center justify-between border-b border-forest/10 px-5">
                                 <Link
                                     href="/"
-                                    onClick={closeMobileMenu}
+                                    onClick={handleBrandClick}
                                     className="flex flex-col items-center"
                                 >
                                     <span className="sr-only">Amalia Jewellery — الصفحة الرئيسية</span>
