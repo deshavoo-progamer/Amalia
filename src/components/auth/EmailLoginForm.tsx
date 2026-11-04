@@ -145,7 +145,7 @@ export default function EmailLoginForm({ redirectTo }: { redirectTo: string }) {
                         onClick={() => setShowPassword((value) => !value)}
                         aria-label={showPassword ? "إخفاء كلمة المرور" : "إظهار كلمة المرور"}
                         aria-pressed={showPassword}
-                        className="absolute inset-y-0 end-1 mt-2 grid w-12 place-items-center text-forest/60 hover:text-forest"
+                        className="absolute inset-y-0 inset-e-1 mt-2 grid w-12 place-items-center text-forest/60 hover:text-forest"
                     >
                         {showPassword ? <EyeOff size={18} strokeWidth={1.5} /> : <Eye size={18} strokeWidth={1.5} />}
                     </button>

@@ -47,7 +47,8 @@ export const siteConfig = {
         pickup: 16,
         delivery: 24,
     },
-    payments: ["مدى", "Visa", "Mastercard", "Apple Pay", "STC Pay"],
+    // Non-breaking spaces keep "Apple Pay" and "STC Pay" whole when a line wraps in RTL text.
+    payments: ["مدى", "Visa", "Mastercard", "Apple Pay", "STC Pay"],
     colors: {
         green: "#11312c",
         gold: "#c6a575",

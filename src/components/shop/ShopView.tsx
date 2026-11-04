@@ -26,7 +26,7 @@ export default function ShopView({ active, image, eyebrow, title, description, b
     return (
         <main id="main-content">
             <PageHeader eyebrow={eyebrow} title={title} description={description} breadcrumbs={breadcrumbs} image={image}>
-                <nav aria-label="تصنيفات المتجر" className="mt-10 -mx-4 overflow-x-auto px-4 sm:mx-0 sm:px-0">
+                <nav aria-label="تصنيفات المتجر" className="mt-10 -mx-4 overflow-x-auto px-4 scrollbar-none sm:mx-0 sm:px-0">
                     <ul className="flex w-max gap-2">
                         {tabs.map((tab) => {
                             const isActive = tab.key === active;

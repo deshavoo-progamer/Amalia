@@ -292,6 +292,13 @@
   animation: amalia-float 7s ease-in-out infinite;
 }
 
+/* Phone screens are too narrow: the sparkles would land on top of the text. */
+@media (max-width: 639px) {
+  .amalia-sparkle {
+    display: none;
+  }
+}
+
 @keyframes amalia-float {
   0%,
   100% {

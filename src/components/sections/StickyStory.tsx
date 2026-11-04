@@ -80,7 +80,8 @@ function StoryText({
     const end = start + STEP;
     const isFirst = index === 0;
     const isLast = index === COUNT - 1;
-    const range = clampRange([start - STEP * 0.3, start, end - STEP * 0.3, end]);
+    // One chapter finishes fading out exactly where the next begins, so two texts never overlap.
+    const range = clampRange([start - STEP * 0.15, start, end - STEP * 0.3, end - STEP * 0.15]);
 
     const opacity = useTransform(progress, range, [
         isFirst ? 1 : 0,
@@ -89,10 +90,10 @@ function StoryText({
         isLast ? 1 : 0,
     ]);
     const y = useTransform(progress, range, [
-        isFirst ? 0 : 60,
+        isFirst ? 0 : 24,
         0,
         0,
-        isLast ? 0 : -60,
+        isLast ? 0 : -24,
     ]);
     return (
         <motion.article
@@ -191,7 +192,7 @@ export default function StickyStory() {
                         <Emblem tone="current" className="size-full" />
                     </motion.div>
 
-                    <div className="mx-auto grid h-full max-w-[1600px] grid-rows-2 gap-6 px-4 py-6 sm:px-8 lg:grid-cols-[1fr_1.1fr] lg:grid-rows-1 lg:gap-16 lg:px-12 lg:py-10">
+                    <div className="mx-auto grid h-full max-w-[1600px] grid-rows-2 gap-6 px-4 py-6 sm:px-8 lg:grid-cols-[1fr_1.1fr] lg:grid-rows-1 lg:gap-16 lg:px-12 lg:py-10 [@media(max-height:520px)]:grid-rows-[1fr_3fr] [@media(max-height:520px)]:gap-3 [@media(max-height:520px)]:py-3">
                         {/* Text column (right in RTL) */}
                         <div className="relative order-2 lg:order-1">
                             <div className="relative h-full">
@@ -206,7 +207,7 @@ export default function StickyStory() {
                             </div>
 
                             {/* Chapter dots */}
-                            <ol className="absolute bottom-0 right-0 flex gap-2">
+                            <ol className="absolute right-0 bottom-0 flex gap-2 [@media(max-height:640px)]:hidden">
                                 {storyChapters.map((chapter, index) => (
                                     <li
                                         key={chapter.id}

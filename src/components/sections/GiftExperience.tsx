@@ -74,8 +74,8 @@ export default function GiftExperience() {
                         className="absolute -bottom-10 left-0 aspect-4/5 w-[48%] overflow-hidden rounded-[1.25rem] shadow-[0_30px_80px_-20px_rgb(0_0_0/60%)] ring-1 ring-gold/30"
                     >
                         <Image
-                            src="/images/detail-flowers.webp"
-                            alt="زهور بيضاء ناعمة وشريط ساتان أخضر بأيقونة أماليا الذهبية"
+                            src="/images/gift-box-portrait.webp"
+                            alt="علبة هدايا خضراء من أماليا بداخلها إسوارة ذهب رقيقة مع شريط ساتان"
                             fill
                             sizes="(min-width: 1024px) 22vw, 45vw"
                             className="object-cover"

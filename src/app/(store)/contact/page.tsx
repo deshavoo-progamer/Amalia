@@ -58,16 +58,16 @@ export default function ContactPage() {
             />
 
             <section aria-label="قنوات التواصل" className="bg-ivory py-14 sm:py-20">
-                <ul className="mx-auto grid max-w-[1600px] gap-4 px-4 sm:grid-cols-2 sm:px-8 lg:grid-cols-3 lg:px-12">
+                <ul className="mx-auto grid max-w-[1600px] grid-cols-1 gap-4 px-4 sm:grid-cols-2 sm:px-8 lg:grid-cols-3 lg:px-12">
                     {channels.map(({ icon: Icon, title, value, href, ltr }, index) => (
                         <Reveal key={title} as="li" delay={(index % 3) * 0.08}>
                             <a
                                 href={href}
                                 target={href.startsWith("http") ? "_blank" : undefined}
                                 rel={href.startsWith("http") ? "noopener noreferrer" : undefined}
-                                className="amalia-promise group flex h-full items-center gap-5 rounded-2xl border border-forest/10 bg-white/60 p-6 transition-colors hover:border-gold"
+                                className="amalia-promise group flex h-full items-center gap-3 rounded-2xl border border-forest/10 bg-white/60 p-4 transition-colors hover:border-gold sm:gap-5 sm:p-6"
                             >
-                                <span className="grid size-14 shrink-0 place-items-center rounded-full border border-gold/40 text-gold-deep transition-all duration-500 group-hover:rotate-[360deg] group-hover:bg-forest group-hover:text-gold">
+                                <span className="grid size-14 shrink-0 place-items-center rounded-full border border-gold/40 text-gold-deep transition-all duration-500 group-hover:rotate-360 group-hover:bg-forest group-hover:text-gold">
                                     <Icon size={22} strokeWidth={1.4} />
                                 </span>
                                 <span className="min-w-0 flex-1">

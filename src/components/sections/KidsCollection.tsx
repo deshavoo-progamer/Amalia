@@ -32,7 +32,7 @@ export default function KidsCollection() {
         >
             <div className="mx-auto grid max-w-[1600px] items-center gap-14 px-4 sm:px-8 lg:grid-cols-2 lg:gap-20 lg:px-12">
                 <Reveal>
-                    <p className="amalia-eyebrow">Newborn Birthstones</p>
+                    <p className="amalia-eyebrow">حجر شهر الميلاد</p>
                     <h2
                         id="kids-title"
                         className="mt-4 text-3xl text-balance text-forest sm:text-4xl lg:text-5xl"
@@ -85,11 +85,11 @@ export default function KidsCollection() {
 
                         <div className="amalia-arch relative h-full overflow-hidden bg-forest">
                             <Image
-                                src="/images/detail-flowers.webp"
-                                alt="زهور بيضاء ناعمة بجانب علبة مجوهرات أماليا الخضراء"
+                                src="/images/newborn-satin.webp"
+                                alt="قرطان ذهبيان للمواليد بقفل لولبي وحجر أزرق من أماليا على ساتان أخضر"
                                 fill
                                 sizes="(min-width: 1024px) 40vw, 90vw"
-                                className="object-cover transition-transform duration-[1.6s] ease-(--ease-luxe) hover:scale-110"
+                                className="object-cover transition-transform duration-[1.6s] ease-luxe hover:scale-110"
                             />
                         </div>
 

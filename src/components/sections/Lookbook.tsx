@@ -83,7 +83,7 @@ export default function Lookbook() {
 
     const heading = (
         <div className="max-w-sm shrink-0 self-center ps-2">
-            <p className="amalia-eyebrow">Lookbook</p>
+            <p className="amalia-eyebrow">إطلالات أماليا</p>
             <h2
                 id="lookbook-title"
                 className="mt-4 text-4xl text-ivory sm:text-5xl"

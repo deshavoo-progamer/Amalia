@@ -115,7 +115,7 @@ export default function Footer() {
                     >
                         {footerColumns.map((column) => (
                             <div key={column.title}>
-                                <h2 className="font-sans text-sm font-medium tracking-wide text-gold">
+                                <h2 className="font-sans text-sm font-medium text-gold">
                                     {column.title}
                                 </h2>
                                 <ul className="mt-5 space-y-3">
@@ -143,17 +143,15 @@ export default function Footer() {
                     <Wordmark className="w-full" />
                 </div>
 
-                <div className="mt-10 flex flex-col items-center justify-between gap-4 border-t border-ivory/10 pt-8 text-xs text-ivory/60 sm:flex-row">
+                <div className="mt-10 flex flex-col items-center justify-between gap-3 border-t border-ivory/10 pt-8 text-center text-xs leading-6 text-ivory/60 sm:flex-row">
                     <p>
-                        © {year} {siteConfig.name} | {siteConfig.nameEn}. جميع الحقوق محفوظة.
+                        © {year} {siteConfig.name}. جميع الحقوق محفوظة.
                     </p>
-                    <p className="flex flex-wrap items-center justify-center gap-x-4 gap-y-2">
-                        <span>موثّق في منصة الأعمال</span>
-                        <span aria-hidden="true" className="text-gold">✦</span>
-                        <span lang="en" dir="ltr">
-                            {siteConfig.payments.join(" · ")}
-                        </span>
-                    </p>
+                    <div className="flex flex-col items-center gap-3 sm:flex-row sm:gap-4">
+                        <p>موثّق في منصة الأعمال</p>
+                        <span aria-hidden="true" className="hidden text-gold sm:inline">✦</span>
+                        <p dir="ltr">{siteConfig.payments.join(" · ")}</p>
+                    </div>
                 </div>
             </div>
         </footer>

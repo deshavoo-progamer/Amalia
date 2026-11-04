@@ -48,7 +48,7 @@ export default function NicheCard({
                                 fill
                                 sizes={sizes}
                                 preload={priority}
-                                className={cn("object-contain", !product.available && "opacity-50 grayscale-[40%]")}
+                                className={cn("object-contain", !product.available && "opacity-50 grayscale-40")}
                             />
                         </div>
                     </div>
@@ -77,7 +77,7 @@ export default function NicheCard({
             </div>
 
             <div className="mt-6 px-1 text-center">
-                <p className="text-[11px] tracking-wide text-gold">
+                <p className="text-[11px] text-gold">
                     {category?.title}
                     {product.karat && ` · عيار ${product.karat}`}
                 </p>
@@ -97,10 +97,11 @@ export default function NicheCard({
                     <div className="relative z-10 mt-4 flex items-center justify-center gap-2">
                         <WishButton name={product.name} />
 
+                        {/* Phones have no room for three buttons, and the whole card already opens the product. */}
                         <Link
                             href={href}
                             tabIndex={-1}
-                            className="amalia-niche-cta inline-flex h-11 items-center gap-1.5 rounded-full bg-gold px-4 text-xs font-medium text-forest-deep transition-colors hover:bg-gold-light sm:px-5 sm:text-sm"
+                            className="amalia-niche-cta hidden h-11 items-center gap-1.5 rounded-full bg-gold px-5 text-sm font-medium text-forest-deep transition-colors hover:bg-gold-light sm:inline-flex"
                         >
                             اكتشفي
                             <ArrowLeft size={15} strokeWidth={1.5} />

@@ -161,7 +161,7 @@ export default function Navbar() {
             >
                 <div ref={announcementRef} className="amalia-announcement">
                     <div className="mx-auto flex min-h-9 max-w-[1600px] items-center justify-center px-4">
-                        <p className="text-center text-[10px] font-medium tracking-[0.12em] sm:text-xs">
+                        <p className="text-center text-[11px] font-medium sm:text-xs">
                             شحن لجميع مناطق المملكة خلال 3–5 أيام
                             <span className="mx-2 text-gold">✦</span>
                             ذهب عيار 18 لكِ ولصغيرتك

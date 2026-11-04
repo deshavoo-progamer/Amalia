@@ -16,7 +16,7 @@ const promises = [
     {
         icon: ShieldCheck,
         title: "دفع آمن",
-        text: "مدى، Apple Pay، STC Pay والبطاقات.",
+        text: "مدى، Apple Pay، STC Pay والبطاقات.",
     },
     {
         icon: BadgeCheck,
@@ -37,7 +37,7 @@ export default function Promises() {
                             delay={index * 0.08}
                             className="amalia-promise group bg-ivory p-6 text-center sm:p-10"
                         >
-                            <span className="relative mx-auto grid size-14 place-items-center rounded-full border border-gold/40 text-gold-deep transition-all duration-500 group-hover:rotate-[360deg] group-hover:bg-forest group-hover:text-gold">
+                            <span className="relative mx-auto grid size-14 place-items-center rounded-full border border-gold/40 text-gold-deep transition-all duration-500 group-hover:rotate-360 group-hover:bg-forest group-hover:text-gold">
                                 <Icon size={22} strokeWidth={1.4} />
                             </span>
                             <h3 className="mt-5 text-base font-medium text-forest sm:text-lg">

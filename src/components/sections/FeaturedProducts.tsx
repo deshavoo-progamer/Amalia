@@ -31,7 +31,7 @@ export default async function FeaturedProducts() {
             </div>
 
             {/* Mobile: walk along the wall (horizontal snap). Desktop: one calm row. */}
-            <ul className="mx-auto mt-16 flex max-w-[1600px] snap-x snap-mandatory gap-6 overflow-x-auto px-[16vw] pb-6 [scrollbar-width:none] sm:px-8 md:grid md:grid-cols-5 md:gap-5 md:overflow-visible md:px-8 lg:gap-8 lg:px-12">
+            <ul className="mx-auto mt-16 flex max-w-[1600px] snap-x snap-mandatory gap-6 overflow-x-auto px-[16vw] pb-6 scrollbar-none sm:px-8 md:grid md:grid-cols-5 md:gap-5 md:overflow-visible md:px-8 lg:gap-8 lg:px-12">
                 {pieces.map((product, index) => (
                     <Reveal
                         key={product.id}
