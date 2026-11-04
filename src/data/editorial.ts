@@ -19,9 +19,8 @@ export const collections: Collection[] = [
         title: "للنساء",
         description: "قطع ذهب تكمّل إطلالتك اليومية وأجمل مناسباتك",
         href: "/shop/women",
-        image: "/images/collection-women-necklace.webp",
-        alt: "سلسال ذهبي بدلاية عقدة مرصعة بحجر لامع من أماليا على خلفية خضراء",
-        imagePosition: "65% 50%",
+        image: "/images/collection-women-ring.webp",
+        alt: "خاتم ذهب مرصع بأحجار لامعة من أماليا على سطح أخضر",
     },
     {
         id: "kids",

@@ -62,7 +62,7 @@ export default function CollectionCard({
 
             <div
                 aria-hidden="true"
-                className="absolute inset-0 -z-10 bg-linear-to-t from-forest-deep/95 via-forest-deep/40 via-35% to-transparent to-70% transition-opacity duration-700 group-hover:opacity-90"
+                className="absolute inset-0 -z-10 bg-linear-to-t from-forest-deep/85 via-forest-deep/25 via-25% to-transparent to-50% transition-opacity duration-700 group-hover:opacity-90"
             />
             <div aria-hidden="true" className="amalia-spotlight" />
 
@@ -78,7 +78,7 @@ export default function CollectionCard({
                 href={collection.href}
                 className="relative flex h-full flex-col justify-end p-6 text-ivory outline-none sm:p-8"
             >
-                <span className="block">
+                <span className="block [text-shadow:0_1px_14px_rgb(10_33_29/80%)]">
                     <span className="amalia-collection-title block text-3xl font-medium sm:text-4xl">
                         {collection.title}
                     </span>

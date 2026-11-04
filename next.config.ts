@@ -13,6 +13,8 @@ const nextConfig: NextConfig = {
     // and shorter srcsets keep the 97-card shop HTML lean.
     deviceSizes: [640, 828, 1080, 1440, 1920],
     imageSizes: [128, 256, 384],
+    // One quality for every image: gold detail turns muddy at the default 75.
+    qualities: [90],
     // Product photos uploaded from /admin are stored on Vercel Blob.
     remotePatterns: [{ protocol: "https", hostname: "*.public.blob.vercel-storage.com" }],
   },
