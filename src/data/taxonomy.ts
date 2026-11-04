@@ -68,8 +68,8 @@ export const categories: Category[] = [
         description:
             "أقراط ذهب عيار 18 مريحة وآمنة على البشرة، بتصاميم القلب والفراشة والزهور والكريستال.",
         seoTitle: "أقراط ذهب عيار 18",
-        image: "/images/kids-earrings.webp",
-        alt: "قرط ذهبي صغير من أماليا",
+        image: "/images/look-pearl-earrings.webp",
+        alt: "قرطان ذهبيان بلؤلؤة وحجر أزرق فاتح من أماليا على حجر طبيعي",
     },
     {
         key: "necklaces",
@@ -77,8 +77,8 @@ export const categories: Category[] = [
         description:
             "سلاسل ذهب رقيقة بتعليقات الفراشة والقلب والصدف الطبيعي، قطع تُلبس كل يوم وتُهدى في كل مناسبة.",
         seoTitle: "سلاسل وقلائد ذهب عيار 18",
-        image: "/images/gift-satin-necklace.webp",
-        alt: "سلسال الفراشة الذهبي من أماليا على ساتان أخضر",
+        image: "/images/look-flower-necklace.webp",
+        alt: "سلسال ذهب بدلاية زهرة من الأحجار اللامعة من أماليا",
     },
     {
         key: "bracelets",
@@ -86,8 +86,8 @@ export const categories: Category[] = [
         description:
             "أساور ذهب ناعمة مزينة بالزهور والتاج والأحجار الكريمة، تفاصيل صغيرة بحضور كبير.",
         seoTitle: "أساور ذهب عيار 18",
-        image: "/images/kids-bracelet.webp",
-        alt: "إسوارة ذهب بزهرة الصدف من أماليا",
+        image: "/images/look-flower-bangle.webp",
+        alt: "إسوارة ذهب مرصعة بثلاث زهرات من الأحجار اللامعة من أماليا على حجر طبيعي",
     },
     {
         key: "newborn",
@@ -95,8 +95,8 @@ export const categories: Category[] = [
         description:
             "أقراط ذهب لحديثي الولادة بلون حجر شهر الميلاد، رقيقة وآمنة على بشرة المواليد — أجمل هدية للسبوع.",
         seoTitle: "أقراط ذهب لحديثي الولادة بحجر شهر الميلاد",
-        image: "/images/newborn-satin.webp",
-        alt: "قرطان ذهبيان لحديثي الولادة بحجر أزرق لشهر سبتمبر على ساتان أخضر",
+        image: "/images/collection-newborn-earrings.webp",
+        alt: "قرطان ذهبيان للمواليد بقفل لولبي وحجر أزرق فاتح من أماليا",
     },
 ];
 

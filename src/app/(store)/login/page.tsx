@@ -60,8 +60,8 @@ export default async function LoginPage({ searchParams }: PageProps<"/login">) {
                     <span aria-hidden="true" className="amalia-arch absolute -inset-4 border border-gold/40" />
                     <div className="amalia-arch relative aspect-4/5 overflow-hidden bg-forest shadow-[0_50px_100px_-40px_rgb(10_33_29/60%)]">
                         <Image
-                            src="/images/kids-necklace.webp"
-                            alt="طفلة ترتدي سلسال الفراشة الذهبي من أماليا"
+                            src="/images/look-flower-bracelet.webp"
+                            alt="إسوارة ذهب رقيقة بزهرة الصدف من أماليا على وسادة مخملية"
                             fill
                             sizes="45vw"
                             className="object-cover"
